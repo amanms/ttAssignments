@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .banner{
+            background-color: lightgreen;
+            max-height: 280px;
+        }
+        .banner_content{
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        body{
+            margin: 0;
+        }
+        
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner_content">
+            <div class="logo">
+                <img src="/logo.jpg" alt="logo" style="width:50px;height:50px">
+            </div>
+        </div>
+    </div>
+    <br>
+    <form>
+        <h3 style="text-align: center;"><u>Register here</u></h3>
+        <table cellpadding="10">
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="fname" placeholder="First Name"></td>
+            </tr>
+            <tr>
+                <td>Middle Name:</td>
+                <td><input type="text" name="mname" placeholder="Middle Name"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lname" placeholder="Last Name"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" name="dob" ></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" placeholder="Email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" placeholder="Password"></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="tel" name="phno" placeholder="Phone Number" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="tel" name="phno" placeholder="Phone Number" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><input type="radio" name="Gender" value="male">Male
+                    <input type="radio"  name="Gender" value="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td>Current Address:</td>
+                <td><textarea rows="6" cols="25" placeholder="Enter your current  address"></textarea></td>
+            </tr>
+            <tr>
+                <td>Permanent Address:</td>
+                <td><textarea rows="6" cols="25" placeholder="Enter your permanent address"></textarea></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input type="text" name="city" placeholder="City"></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><input type="text" name="state" placeholder="State"></td>
+                
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><input type="text" name="country" placeholder="Country"></td>
+            </tr>
+            <tr>
+                <td>Zip Code:</td>
+                <td><input type="text" name="zipcode"placeholder="zipcode" maxlength="6"></td>
+            </tr>
+            <tr>
+                <td>Hobbies:</td>
+                <td>
+                    <select name="hobbies" multiple>
+                        <option value="sports">Sports</option>
+                        <option value="Books">Books</option>
+                        <option value="Computer and  Software">Computer and  Software</option>
+                        <option value="Singing">Singing</option>
+                        <option value="Dance">Dance</option>
+                        <option value="photography">photography</option>
+                        <option value="fashion">Fashion</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="Submit">
+                    &nbsp;&nbsp;<input type="submit" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
