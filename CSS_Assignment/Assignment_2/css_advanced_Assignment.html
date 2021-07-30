@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css_advanced_Assignment_css.css">
+    <title>Registration form</title>
+</head>
+<body>
+    <div class="main">
+        <div class="content_main">
+            <h2>Register Here</h2>
+            <form id="register">
+                <label>First Name:</label><span>*</span>
+                <br>
+                <input type="text" id="fname" name="fname" placeholder="First Name" required>
+                <br><br>
+                <label>Last Name:</label><span>*</span>
+                <br>
+                <input  type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <br><br>
+                
+                <label>Email:</label><span>*</span>
+                <br>
+                <input  type="email" id="email" name="email" placeholder="Email" required>
+                <br><br>
+                <label >Password:</label><span>*</span>
+                <br>
+                <input type="password" id="password" name="password" placeholder="Password">
+                <br><br>
+                <label >Confirm Password:</label><span>*</span>
+                <br>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Password">
+                <br><br>
+                <label >Gender:</label><span>*</span>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="male" name="Gender" value="male" required >
+                <label  for="male">Male</label>
+                &nbsp;
+                <input type="radio"  id="female" name="Gender" value="female" required>
+                <label  for="female">Female</label>
+                <br><br>
+                <label >Phone 1</label><span>*</span>
+                <br>
+                <input type="tel"id="phone1" name="ph_no1" placeholder="Phone Number" maxlength="10" required>
+                <br><br>
+                <label>Phone 2</label>
+                <br>
+                <input type="tel"id="phone2" name="ph_no2" placeholder="Phone Number" maxlength="10">
+                <br><br>
+                <label>Address 1</label><span>*</span>
+                <br>
+                <textarea rows="6" cols="25" id="address_1" name="address_1"placeholder="Enter your address" required></textarea>
+                <br><br>
+                <label>Address 2</label>
+                <br>
+                <textarea rows="6" cols="25" id="address_2" name="address_2" placeholder="Enter your address" ></textarea>
+                <br><br>
+                <label>City:</label><span>*</span>
+                <br>
+                <input type="text"id="city" name="city" placeholder="City" required>
+                <br><br>
+                <label>State:</label><span>*</span>
+                <br>
+                <select name="state" id="state" required>
+                    <option value="" selected disabled hidden>Choose Here</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Punjab">Punjab</option>
+                </select>
+                <br><br>
+                <label>Country:</label><span>*</span>
+                <br>
+                <select name="country" id="country" required>
+                    <option value="" selected disabled hidden>Choose Here</option>
+                    <option value="India">India</option>
+                    <option value="US">US</option>
+                    <option value="China">China</option>
+                </select>
+                <br><br>
+                <label>Subscribe news letter?(yes/no)</label>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="yes_no" name="yes_no" value="yes">
+                <label  for="yes_no">Yes</label>
+                &nbsp;
+                <input type="radio" id="yes_no" name="yes_no" value="no">
+                <label  for="yes_no">No</label>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Submit">
+
+
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

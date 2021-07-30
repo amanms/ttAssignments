@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+</head>
+<body style="background-image: url(img.jpg);background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+    <div style="width: 400px;margin: 100px auto 0px auto;">
+        <div style="background-color:rgba(0,0,0,0.5);width: 100%;font-size: 18px;border-radius: 10px;">
+            <h2 style="color: white;text-align: center;font-family: sans-serif;padding: 20px;">Register Here</h2>
+            <form style="margin: 40px;">
+                <label style="color: white;font-size: 18px;font-style: italic;">First Name:<span style="color: red;">*</span></label>
+                <br>
+                <input style="width: 250px; padding: 8px;" type="text" id="fname" name="fname" placeholder="First Name" required>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Last Name:<span style="color: red;">*</span></label>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <br><br>
+                
+                <label style="color: white;font-size: 18px;font-style: italic;">Email:</label><span style="color: red;">*</span>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="email" id="email" name="email" placeholder="Email" required>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Password:</label><span style="color: red;">*</span>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="password" id="password" name="password" placeholder="Password">
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Confirm Password:</label><span style="color: red;">*</span>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="password" id="confirmpassword" name="confirmpassword" placeholder="Password">
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Gender:</label><span style="color: red;">*</span>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="male" name="Gender" value="male" required >
+                <label style="color: white;font-size: 18px;font-style: italic;" for="male">Male</label>
+                &nbsp;
+                <input type="radio"  id="female" name="Gender" value="female" required>
+                <label style="color: white;font-size: 18px;font-style: italic;" for="female">Female</label>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Phone 1</label><span style="color: red;">*</span>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="tel"id="phone1" name="ph_no1" placeholder="Phone Number" maxlength="10" required>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Phone 2</label>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="tel"id="phone2" name="ph_no2" placeholder="Phone Number" maxlength="10">
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Address 1</label><span style="color: red;">*</span>
+                <br>
+                <textarea style="width: 250px;padding: 8px;" rows="6" cols="25" id="address1" placeholder="Enter your address" required></textarea>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Address 2</label>
+                <br>
+                <textarea style="width: 250px;padding: 8px;" rows="6" cols="25" id="address2" placeholder="Enter your address" ></textarea>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">City:</label><span style="color: red;">*</span>
+                <br>
+                <input style="width: 250px;padding: 8px;" type="text"id="city" name="city" placeholder="City" required>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">State:</label><span style="color: red;">*</span>
+                <br>
+                <select style="width: 270px;padding: 8px;" name="state" id="state" required>
+                    <option value="" selected disabled hidden>Choose Here</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Punjab">Punjab</option>
+                </select>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Country:</label><span style="color: red;">*</span>
+                <br>
+                <select style="width: 270px;padding: 8px;" name="country" id="country" required>
+                    <option value="" selected disabled hidden>Choose Here</option>
+                    <option value="India">India</option>
+                    <option value="US">US</option>
+                    <option value="China">China</option>
+                </select>
+                <br><br>
+                <label style="color: white;font-size: 18px;font-style: italic;">Subscribe news letter?(yes/no)</label>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="yes_no" name="yes_no" value="yes">
+                <label style="color: white;font-size: 18px;font-style: italic;" for="yes_no">Yes</label>
+                &nbsp;
+                <input type="radio" id="yes_no" name="yes_no" value="no">
+                <label style="color: white;font-size: 18px;font-style: italic;" for="yes_no">No</label>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input style="width: 200px;padding: 5px;border-radius: 5px;background-color: rgba(131, 7, 7, 0.5);color: cyan;margin: 5px;" type="submit" value="Submit">
+
+
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

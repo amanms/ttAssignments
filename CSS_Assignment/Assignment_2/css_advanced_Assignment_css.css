@@ -1,0 +1,49 @@
+body{
+    background-image: url(img.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.main{
+    width: 400px;
+    margin: 100px auto 0px auto;
+}
+.content_main{
+    background-color:rgba(0,0,0,0.5);
+    width: 100%;
+    font-size: 18px;
+    border-radius: 10px;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    padding: 20px;
+}
+#register{
+    margin: 40px;
+}
+label{
+    color: white;
+    font-size: 18px;
+    font-style: italic;
+}
+span{
+    color: red;
+}
+input[type="text"],input[type="email"],input[type="password"],input[type="tel"],input[type="textarea"]{
+    width: 250px; 
+    padding: 8px;
+}
+select{
+    width: 270px;
+    padding: 8px;
+}
+input[type="submit"]{
+    width: 200px;padding:5px;
+    border-radius:5px;
+    background-color: rgba(131, 7, 7, 0.5);
+    color: cyan;
+    margin: 5px;
+
+}
