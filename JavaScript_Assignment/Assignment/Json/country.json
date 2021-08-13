@@ -1,0 +1,53 @@
+{
+    "country":[
+        {
+        "name":"India"
+        },
+        {
+            "name":"uk"
+        },
+        {
+            "name":"singapore"
+        }
+
+    ],
+    "states":[
+        {
+            "name": "Andaman and Nicobar Islands"
+        },
+        {
+            "name": "Andhra Pradesh"
+        },
+        {
+            "name": "Arunachal Pradesh"
+        },
+        {
+            "name": "Assam"
+        },
+        {
+            "name": "Bihar"
+        },
+        {
+            "name": "Chandigarh"
+        },
+        {
+            "name": "Chhattisgarh"  
+        },
+        {
+            "name": "Dadra and Nagar Haveli"
+        },
+        {
+            "name": "Daman and Diu"
+        },
+        {
+            "name": "Delhi"
+        },
+        {
+            "name": "Goa"
+        },
+        {
+            "name": "Gujarat"
+
+        }
+    ]
+}

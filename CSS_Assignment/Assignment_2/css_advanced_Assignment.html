@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css_advanced_Assignment_css.css">
+    <link rel="stylesheet" href="../Assignment_2/css/css_advanced_Assignment_css.css">
     <title>Registration form</title>
 </head>
+<!-- A registration page external css style sheet -->
 <body>
     <div class="main">
         <div class="content_main">
@@ -52,11 +53,11 @@
                 <br><br>
                 <label>Address 1</label><span>*</span>
                 <br>
-                <textarea rows="6" cols="25" id="address_1" name="address_1"placeholder="Enter your address" required></textarea>
+                <input type="text"id="address_1" name="address_1" placeholder="Address" required>
                 <br><br>
                 <label>Address 2</label>
                 <br>
-                <textarea rows="6" cols="25" id="address_2" name="address_2" placeholder="Enter your address" ></textarea>
+                <input type="text"id="address_2" name="address_2" placeholder="Address" required>
                 <br><br>
                 <label>City:</label><span>*</span>
                 <br>
@@ -83,7 +84,7 @@
                     <option value="China">China</option>
                 </select>
                 <br><br>
-                <label>Subscribe news letter?(yes/no)</label>
+                <label>Subscribe news letter?</label>
                 <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" id="yes_no" name="yes_no" value="yes">

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,62 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form</title>
 </head>
-<body style="background-image: url(img.jpg);background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+<!-- A registration page with inline css styles-->
+<body style="background-image: url(../Assignment_1/Imgaes/img.jpg);background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
     <div style="width: 400px;margin: 100px auto 0px auto;">
         <div style="background-color:rgba(0,0,0,0.5);width: 100%;font-size: 18px;border-radius: 10px;">
-            <h2 style="color: white;text-align: center;font-family: sans-serif;padding: 20px;">Register Here</h2>
+            <h2 style="color: #FDFEFE;text-align: center;font-family: sans-serif;padding: 20px;">Register Here</h2>
             <form style="margin: 40px;">
-                <label style="color: white;font-size: 18px;font-style: italic;">First Name:<span style="color: red;">*</span></label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">First Name:<span style="color: red;">*</span></label>
                 <br>
                 <input style="width: 250px; padding: 8px;" type="text" id="fname" name="fname" placeholder="First Name" required>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Last Name:<span style="color: red;">*</span></label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Last Name:<span style="color: red;">*</span></label>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="text" id="lname" name="lname" placeholder="Last Name" required>
                 <br><br>
                 
-                <label style="color: white;font-size: 18px;font-style: italic;">Email:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Email:</label><span style="color: red;">*</span>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="email" id="email" name="email" placeholder="Email" required>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Password:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Password:</label><span style="color: red;">*</span>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="password" id="password" name="password" placeholder="Password">
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Confirm Password:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Confirm Password:</label><span style="color: red;">*</span>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="password" id="confirmpassword" name="confirmpassword" placeholder="Password">
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Gender:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Gender:</label><span style="color: red;">*</span>
                 <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" id="male" name="Gender" value="male" required >
-                <label style="color: white;font-size: 18px;font-style: italic;" for="male">Male</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;" for="male">Male</label>
                 &nbsp;
                 <input type="radio"  id="female" name="Gender" value="female" required>
-                <label style="color: white;font-size: 18px;font-style: italic;" for="female">Female</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;" for="female">Female</label>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Phone 1</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Phone 1</label><span style="color: red;">*</span>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="tel"id="phone1" name="ph_no1" placeholder="Phone Number" maxlength="10" required>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Phone 2</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Phone 2</label>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="tel"id="phone2" name="ph_no2" placeholder="Phone Number" maxlength="10">
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Address 1</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Address 1</label><span style="color: red;">*</span>
                 <br>
-                <textarea style="width: 250px;padding: 8px;" rows="6" cols="25" id="address1" placeholder="Enter your address" required></textarea>
+                <input style="width: 250px;padding: 8px;" type="text"id="address_1" name="address_1" placeholder="address" required>
+                
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Address 2</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Address 2</label>
                 <br>
-                <textarea style="width: 250px;padding: 8px;" rows="6" cols="25" id="address2" placeholder="Enter your address" ></textarea>
+                <input style="width: 250px;padding: 8px;" type="text"id="address_1" name="address_1" placeholder="address" required>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">City:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">City:</label><span style="color: red;">*</span>
                 <br>
                 <input style="width: 250px;padding: 8px;" type="text"id="city" name="city" placeholder="City" required>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">State:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">State:</label><span style="color: red;">*</span>
                 <br>
                 <select style="width: 270px;padding: 8px;" name="state" id="state" required>
                     <option value="" selected disabled hidden>Choose Here</option>
@@ -73,7 +76,7 @@
                     <option value="Punjab">Punjab</option>
                 </select>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Country:</label><span style="color: red;">*</span>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Country:</label><span style="color: red;">*</span>
                 <br>
                 <select style="width: 270px;padding: 8px;" name="country" id="country" required>
                     <option value="" selected disabled hidden>Choose Here</option>
@@ -82,17 +85,17 @@
                     <option value="China">China</option>
                 </select>
                 <br><br>
-                <label style="color: white;font-size: 18px;font-style: italic;">Subscribe news letter?(yes/no)</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;">Subscribe news letter?</label>
                 <br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="radio" id="yes_no" name="yes_no" value="yes">
-                <label style="color: white;font-size: 18px;font-style: italic;" for="yes_no">Yes</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;" for="yes_no">Yes</label>
                 &nbsp;
                 <input type="radio" id="yes_no" name="yes_no" value="no">
-                <label style="color: white;font-size: 18px;font-style: italic;" for="yes_no">No</label>
+                <label style="color: #FDFEFE;font-size: 18px;font-style: italic;" for="yes_no">No</label>
                 <br><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input style="width: 200px;padding: 5px;border-radius: 5px;background-color: rgba(131, 7, 7, 0.5);color: cyan;margin: 5px;" type="submit" value="Submit">
+                <input style="width: 200px;padding: 5px;border-radius: 5px;background-color:#42FF33;color: #17202A;margin: 5px;" type="submit" value="Submit">
 
 
 
