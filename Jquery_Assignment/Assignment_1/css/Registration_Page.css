@@ -41,6 +41,16 @@ body{
     margin-bottom: 20px;
     position: relative;
 }
+fieldset{
+    
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+}
+legend{
+    float:left;
+    padding: 5px 10px;
+}
+
 .form-field input,select{
     width: 100%;
     border: 2px solid #f0f0f0;
@@ -51,14 +61,19 @@ body{
     padding: 12px;
 }
 
+
+
 .form-inline{
     border: 2px solid #f0f0f0;
     padding: 12px;
     border-radius: 5px;
+    width: 100%;  
+}
+.form-fiedlset{
+    border: 2px solid #f0f0f0;
+    padding: 12px;
+    border-radius: 5px;
     width: 100%;
-    
-    
-    
 }
 .form-inline label,input{
     display: inline-block;
@@ -85,16 +100,20 @@ body{
 }
 .error{
     
-    border-color: #ff0000;
+    border-color: red;
+}
+.error_red input[type="text"]{
+    border-color: red;
 }
 .success{
-    border-color: #008000;
+    border-color: green;
 }
 .form-field.error input,.form-field.error select{
-    border-color: #ff0000;
+    border-color: red;
+    
 }
 .form-field.success input,.form-field.success select{
-    border-color: #008000;
+    border-color: green;
 }
 .form-field input[type="submit"]{
     background-color:#06d6b3 ;
@@ -105,3 +124,21 @@ body{
     text-align: center;
 
 }
+
+.error-animation input,.error-animation select{
+    animation: shake 0.1s linear 4;
+
+}
+.error-animation{
+    animation: shake 0.1s linear 4;
+}
+@keyframes shake {
+    0%{transform:translateX(-15px);}
+    25%{transform:translateX(15px);}
+    50%{transform:translateX(-15px);}
+    100%{transform:translateX(0px);}
+}
+.print{
+    color: red;
+}
+

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/Registration_Page.css">
+    
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page second assignment</title>
+</head>
+<body onload="randomCaptcha(this)">
+    <div class="container">
+        <div class="header">
+            <h2>REGISTRATION FORM</h2>
+        </div>
+        <form class="form" name="myform" id="myform" method="GET" >
+            <div class="form-field" >
+                <label>First Name</label>
+                <input type="text" name="fname" id="firstName" placeholder="Enter your first name" autocomplete="off">
+                <small id="firstNameError"></small>
+            </div>
+            <div class="form-field">
+                <label>Middle Name</label>
+                <input type="text" name="mname" id="middleName" placeholder="Enter your middle name" autocomplete="off">
+                <small id="middleNameError"></small>
+            </div>
+            <div class="form-field">
+                <label>Last Name</label>
+                <input type="text" name="lname" id="lastName" placeholder="Enter your last name"  autocomplete="off">
+                <small id="lastNameError"></small>
+            </div>
+            <div class="form-field">
+                <label>Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+                <small id="dobError"></small>
+            </div>
+            <div class="form-field ">
+                <label>Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your mail"  autocomplete="off">
+                <small id="emailError"></small>
+            </div>
+            <div class="form-field ">
+                <label>Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password"  autocomplete="off">
+                <small id="passwordError"></small>
+            </div>
+            <div class="form-field ">
+                <label >Confirm Password:</label>
+                
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"  autocomplete="off">
+                <small id="confirmPasswordError">Error</small>
+            </div>
+            <div class="mobilenumber-container">
+                <div class="form-field">
+                    <label >Phone Number</label>
+                    <input type="text"id="mobile" name="mobile"  placeholder="Phone Number" maxlength="10"  autocomplete="off">
+                    <small id="phoneError"></small>
+                </div>
+                <button id="addRow" type="button" >Add row</button>
+            </div>
+            <div class="phone-number">
+
+            </div>
+            <div class="form-field">
+                <label>Gender</label>
+                <div class="form-inline " id="Gender">
+                    <label><input type="radio" name="radioButton" id="male" value="Male">Male</label>
+                    <label><input type="radio" name="radioButton" id="female" value="Female">Female</label> 
+                </div>
+                <small id="genderError"></small>
+            </div>
+            <div class="form-field ">
+                <label>Country</label>
+                <select id="selectCountry" name="country">
+                    <option value="">--select--</option> 
+                </select>
+                <small id="countryError"></small>
+            </div>
+            <div class="current-address">
+                <fieldset>
+                    <legend>current address</legend><br><br>
+                    <div class="form-field ">
+                        <label>Current Address</label>
+                        <input type="text" name="currentAddress" id="currentAddress" placeholder="Address"  autocomplete="off">
+                        <small id="currentAddressError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>State:</label>
+                        <select id="selectCurrentState" name="state">
+                            <option value="">--select--</option>
+                        </select>
+                        <small id="currentStateError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>City:</label>
+                        <select id="selectCurrentCity" name="selectCity">
+                            <option value="">--select--</option>
+                        </select>
+                        <small id="currentCityError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>Zipcode</label>
+                        <input type="text" id="currentCityZipcode" name="zipcode" autocomplete="off">
+                        <small id="currentCityZipcodeError"></small>
+                    </div>
+                </fieldset>
+            </div>
+            <br><br>
+            <div class="permanent-address">
+                <fieldset>
+                    <legend>Permanent address</legend><br><br>
+                    <div class="form-field">
+                        <label>Permanent Address</label>
+                        <input type="text" name="permanentAddress" id="permanentAddress" placeholder="Address"  autocomplete="off">
+                        <small id="permanentAddressError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>State:</label>
+                        <select id="selectPermanentState" name="state">
+                            <option value="">--select--</option>
+                        </select>
+                        <small id="permanentStateError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>City:</label>
+                        <select id="selectPermanentCity" name="selectCity">
+                            <option value="">--select--</option>
+                        </select>
+                        <small id="permanentCityError"></small>
+                    </div>
+                    <div class="form-field">
+                        <label>Zipcode</label>
+                        <input type="text" id="permanentCityZipcode" name="zipcode"  autocomplete="off">
+                        <small id="permanentCityZipcodeError"></small>
+                    </div>
+                    
+                </fieldset>
+            </div>
+            
+            
+            <div class="form-field">
+                <label>Fill captcha</label>
+                <div class="captcha " id="captcha" onchange="validateCaptcha()">
+                    <div class="captcha-content">
+                        <input type="text" id="digit1" name="digit1">
+                        <span style="padding: 10px;" id="symbol" name="symbol"></span>
+                        <input type="text" id="digit2" name="digit2">
+                        <span style="padding: 10px;">=</span>
+                        <input type="text" id = "answer" name="answer">
+                        <div>
+                            <input type="button" value="Refresh" onclick="randomCaptcha()">
+                        </div>
+                    </div>
+                </div>
+                <small><b>Note:-</b>Only integer value is accepted</small><br>
+                <small id="captchaError"></small>
+            </div>
+            <div class="form-field ">
+                <label>Upload profile pic</label>
+                <input type="file" id="file" name="file" accept="image/png,image/jpeg">
+                <small id="fileError"></small>
+            </div>
+            <div class="form-field">
+                <input type="submit" id = "submit" value="submit">
+            </div>
+            
+        
+
+        </form>
+    </div>
+    <script src="../js/Registration_Page.js"></script>
+</body>
+</html>
