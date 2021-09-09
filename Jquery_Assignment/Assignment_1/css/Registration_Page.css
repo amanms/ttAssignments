@@ -16,6 +16,9 @@ body{
     min-width: 100vw;
     
 }
+span{
+    color: #ff0000;
+}
 .container{
     background-color: #fff;
     border-radius: 10px;

@@ -17,48 +17,48 @@
         </div>
         <form class="form" name="myform" id="myform" method="GET">
             <div class="form-field" >
-                <label>First Name</label>
+                <label>First Name</label><span>*</span>
                 <input type="text" name="fname" id="firstName" placeholder="Enter your first name" autocomplete="off">
                 <small id="firstNameError"></small>
             </div>
             <div class="form-field">
-                <label>Middle Name</label>
+                <label>Middle Name</label><span>*</span>
                 <input type="text" name="mname" id="middleName" placeholder="Enter your middle name" autocomplete="off">
                 <small id="middleNameError"></small>
             </div>
             <div class="form-field">
-                <label>Last Name</label>
+                <label>Last Name</label><span>*</span>
                 <input type="text" name="lname" id="lastName" placeholder="Enter your last name"  autocomplete="off">
                 <small id="lastNameError"></small>
             </div>
             <div class="form-field">
-                <label>Date of Birth</label>
+                <label>Date of Birth</label><span>*</span>
                 <input type="date" id="dob" name="dob">
                 <small id="dobError"></small>
             </div>
             <div class="form-field ">
-                <label>Email</label>
+                <label>Email</label><span>*</span>
                 <input type="email" name="email" id="email" placeholder="Enter your mail"  autocomplete="off">
                 <small id="emailError"></small>
             </div>
             <div class="form-field ">
-                <label>Password</label>
+                <label>Password</label><span>*</span>
                 <input type="password" name="password" id="password" placeholder="Enter your password"  autocomplete="off">
                 <small id="passwordError"></small>
             </div>
             <div class="form-field ">
-                <label >Confirm Password:</label>
+                <label >Confirm Password:</label><span>*</span>
                 
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"  autocomplete="off">
-                <small id="confirmPasswordError">Error</small>
+                <small id="confirmPasswordError"></small>
             </div>
             <div class="form-field">
-                <label >Phone Number</label>
+                <label >Phone Number</label><span>*</span>
                 <input type="text"id="mobile" name="mobile"  placeholder="Phone Number" maxlength="10"  autocomplete="off">
                 <small id="phoneError"></small>
             </div>
             <div class="form-field">
-                <label>Gender</label>
+                <label>Gender</label><span>*</span>
                 <div class="form-inline " id="Gender">
                     <label><input type="radio" name="radioButton" id="male" value="male">Male</label>
                     <label><input type="radio" name="radioButton" id="female" value="female">Female</label> 
@@ -66,7 +66,7 @@
                 <small id="genderError"></small>
             </div>
             <div class="form-field ">
-                <label>Country</label>
+                <label>Country</label><span>*</span>
                 <select id="selectCountry" name="country">
                     <option value="">--select--</option> 
                 </select>
@@ -76,26 +76,26 @@
                 <fieldset>
                     <legend>current address</legend><br><br>
                     <div class="form-field ">
-                        <label>Current Address</label>
+                        <label>Current Address</label><span>*</span>
                         <input type="text" name="currentAddress" id="currentAddress" placeholder="Address"  autocomplete="off">
                         <small id="currentAddressError"></small>
                     </div>
                     <div class="form-field">
-                        <label>State:</label>
+                        <label>State:</label><span>*</span>
                         <select id="selectCurrentState" name="state">
                             <option value="">--select--</option>
                         </select>
                         <small id="currentStateError"></small>
                     </div>
                     <div class="form-field">
-                        <label>City:</label>
+                        <label>City:</label><span>*</span>
                         <select id="selectCurrentCity" name="selectCity">
                             <option value="">--select--</option>
                         </select>
                         <small id="currentCityError"></small>
                     </div>
                     <div class="form-field">
-                        <label>Zipcode</label>
+                        <label>Zipcode</label><span>*</span>
                         <input type="text" id="currentCityZipcode" name="zipcode" autocomplete="off">
                         <small id="currentCityZipcodeError"></small>
                     </div>
@@ -106,26 +106,26 @@
                 <fieldset>
                     <legend>Permanent address</legend><br><br>
                     <div class="form-field">
-                        <label>Permanent Address</label>
+                        <label>Permanent Address</label><span>*</span>
                         <input type="text" name="permanentAddress" id="permanentAddress" placeholder="Address"  autocomplete="off">
                         <small id="permanentAddressError"></small>
                     </div>
                     <div class="form-field">
-                        <label>State:</label>
+                        <label>State:</label><span>*</span>
                         <select id="selectPermanentState" name="state">
                             <option value="">--select--</option>
                         </select>
                         <small id="permanentStateError"></small>
                     </div>
                     <div class="form-field">
-                        <label>City:</label>
+                        <label>City:</label><span>*</span>
                         <select id="selectPermanentCity" name="selectCity">
                             <option value="">--select--</option>
                         </select>
                         <small id="permanentCityError"></small>
                     </div>
                     <div class="form-field">
-                        <label>Zipcode</label>
+                        <label>Zipcode</label><span>*</span>
                         <input type="text" id="permanentCityZipcode" name="zipcode"  autocomplete="off">
                         <small id="permanentCityZipcodeError"></small>
                     </div>
@@ -135,7 +135,7 @@
             
             
             <div class="form-field">
-                <label>Fill captcha</label>
+                <label>Fill captcha</label><span>*</span>
                 <div class="captcha " id="captcha" onchange="validateCaptcha()">
                     <div class="captcha-content">
                         <input type="text" id="digit1" name="digit1">

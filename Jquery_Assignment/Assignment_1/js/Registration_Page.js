@@ -412,7 +412,7 @@ function validateEmail(){
     }
     else{
         txtEmail = true;
-        showSuccess("#email");
+        showSuccess("#emailError");
         result = true;
     }
     return result;
@@ -438,7 +438,7 @@ function validatePassword(){
     }
     else{
         txtPassword = true;
-        showSuccess("#password");
+        showSuccess("#passwordError");
         result = true;
 
     }
