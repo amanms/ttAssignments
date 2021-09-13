@@ -44,15 +44,15 @@ select E.ntEmpId,E.vcName,E.vcMobileNumber from dbo.tblEmp E
 3. Write a single select query which satisfies the following conditions:
     a. If any employee does not have a phone number then select that employee if ntLevel  equal to 1
     b. else select those employees whose ntLevel is equal to 0 
-select * from dbo.Table_2 where vcMobileNumberTemp!=NULL AND ntLevelTemp = 1
-UNION select * from dbo.Table_2 where vcMobileNumberTemp!=NULL AND ntEmpIdTemp=0;  
+select * from dbo.tblEmp where vcMobieNumer IS NOT NULL AND ntLevel = 1
+UNION select * from dbo.tblEmp where ntLevel = 0
             
 /*  ORDER BY clause */
 
 4.  Write a sql query which displays those employee data first, who knows javascript.
 Select * from dbo.Table_2
 ORDER BY
-(CASE WHEN vcSkillsTemp LIKE '%JavaScript%'  THEN 0 ELSE 1 END), vcSkillsTemp
+(CASE WHEN vcSkillsTemp LIKE '%JavaScript%'  THEN 0 ELSE 1 END)
         
 /* TOP  clause */
     
@@ -74,6 +74,8 @@ Having - Having clause is used because we can not use aggregate function in wher
     I got following error message:
     Column 'dbo.tblEmp.vcMobieNumer' is invalid in the select list because it is not contained in either an aggregate function or the GROUP BY clause.
 SELECT [vcName],Count([vcMobieNumer]) FROM [dbo].[tblEmp] GROUP BY [vcName]
+SELECT [vcName],[vcMobieNumer],Count([vcMobieNumer]) FROM [dbo].[tblEmp] GROUP BY [vcName],[vcMobieNumer]
+
 
     Can you explain above error message? Write at least two possible solutions. 
         
@@ -86,7 +88,7 @@ Do the following questions using AdventureWorks DB
 select CONCAT('Number of employees',' ',(select COUNT(Name) from HumanResources.Department));
 
 9. Using BusinessEntityAddress table (and other tables as required), list the full name of people living in the city of Frankfurt.
-select concat(A.FirstName,' ',A.MiddleName,' ',A.LastName) as FullName from Person.Person A INNER JOIN Person.BusinessEntityAddress B ON A.BusinessEntityID=B.BusinessEntityID  INNER JOIN Person.Address C ON  B.AddressID = C.AddressID WHERE C.City = 'Frankfurt'
+select concat(COALESCE(A.FirstName + ' ', ''),COALESCE(A.MiddleName + ' ', ''),COALESCE(A.LastName + ' ', '')) as FullName from Person.Person A INNER JOIN Person.BusinessEntityAddress B ON A.BusinessEntityID=B.BusinessEntityID  INNER JOIN Person.Address C ON  B.AddressID = C.AddressID WHERE C.City = 'Frankfurt'
 
 
 10. "Single Item Order" is a customer order where only one item is ordered. Show the SalesOrderID and the UnitPrice for every Single Item Order.
@@ -106,3 +108,4 @@ varchar- takes 1 bytes per character
          storage type - actual length 
 NVarchar- takes 2 bytes per character
           storage type - 2 times of actual length
+	  Nvarchar is used to store unicode characters
