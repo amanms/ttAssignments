@@ -1,7 +1,7 @@
 
 <cfinclude template="top.cfm">
 <cfif (structKeyExists(url,'id'))>
-    <cfset product = functions.get_product('','',url.id)>
+    <cfset product = functions.get_product_category(product_id=url.id)>
 <cfelse>
     <cflocation url="index.cfm">
 </cfif>

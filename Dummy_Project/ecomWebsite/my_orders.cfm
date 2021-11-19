@@ -20,20 +20,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <cfset uid = #session['USER_ID']#>
                                     
-                                    <cfquery name="order">
+                                    <!---<cfquery name="order">
                                         select distinct(order_detail.id),order_detail.*,products.name,products.filepath,orders.* from order_detail,products,orders
                                         where order_detail.order_id =orders.id and order_detail.user_id=#uid# and order_detail.product_id=products.id;
-                                    </cfquery>
+                                    </cfquery>--->
+                                    <!---<cfquery name="order">
+                                        select distinct(order_detail.id),order_detail.*,orders.* from order_detail,orders
+                                        where order_detail.order_id =orders.id and order_detail.user_id=#uid#;
+                                    </cfquery>--->
+                                    <cfset order = functions.get_orders(user_id=session['USER_ID'])>
                                     <cfloop from="1" to="#order.recordCount#" index="i">
-                                        <cfset row = queryGetRow(order,#i#)>
+                                        <cfset row = queryGetRow(order,i)>
                                         <cfset cart_total = 0>
-                                        <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
+                                        <cfset cart_total = cart_total + (row.price * row.quantity)>
                                         
                                         <tr>
                                             <td class="product-thumbnail"><img src="Images/<cfoutput>#row.filepath#</cfoutput>"></td>
-                                            <th class="product-name"><span class="nobr"><cfoutput>#row.name#</cfoutput></span><br/>    
+                                            <th class="product-name"><span class="nobr"><cfoutput>#row.product_name#</cfoutput></span><br/>    
                                                 Rs<cfoutput>#row.price#</cfoutput>
                                             </th>
                                             <th class="product-stock-stauts"><span class="nobr"><cfoutput>#row.quantity#</cfoutput></span></th>

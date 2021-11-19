@@ -1,8 +1,8 @@
 <cfinclude template="top.cfm">
-<cfif (structKeyExists(session,'USER_LOGIN') AND #session['USER_LOGIN']# EQ 'yes')>
+<!---<cfif (structKeyExists(session,'USER_LOGIN') AND #session['USER_LOGIN']# EQ 'yes')>
     <cfset userid = #session['USER_ID']#>
     <cfif isNumeric(#userid#)>
-        <cfquery name="cartitems">
+        <cfquery name="cart_items">
             select * from cart where userId = #userid#;
         </cfquery>
         <cfset count = #cartitems.recordCount#>
@@ -12,24 +12,31 @@
     <cfelse>
         <cflocation url="logout.cfm">
     </cfif>
-</cfif>
+</cfif>--->
 
+<!---<cfdump var="#cart_items#" abort="true"/>--->
 <cfset cart_total = 0>
-<cfloop from="1" to="#cartitems.recordCount#" index="i">
-    <cfset row = queryGetRow(cartitems,#i#)>
-    <cfset price = #row.price#>
-    <cfset quantity = #row.quantity#>
-    <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
+<cfloop from="1" to="#cart_items.recordCount#" index="i">
+    <cfset row = queryGetRow(cart_items,i)>
+    <cfset product_id = row.product_id>
+    <cfset price = row.price>
+    <cfset quantity = row.quantity>
+    <cfset cart_total = cart_total + (row.price * row.quantity)>
+    <cfset product_name = row.name>
+    <cfset filepath = row.filepath>
 </cfloop>
 <cfif structKeyExists(form,'submit')>
-    <cfset address = #form.address#>
-    <cfset city = #form.city#>
-    <cfset pincode = #form.pincode#>
-    <cfset payment_type = #form.payment_type#>
-    <cfset user_id = #session['USER_ID']#>
-    <cfset total_price = #cart_total#>
+    <cfset order = functions.order_submit(address = form.address,city = form.city,
+                            pincode = form.pincode,payment_type = form.payment_type,
+                            user_id = session['USER_ID'],total_price = cart_total)>
+    <!---<cfset address = form.address>
+    <cfset city = form.city>
+    <cfset pincode = form.pincode>
+    <cfset payment_type = form.payment_type>
+    <cfset user_id = session['USER_ID']>
+    <cfset total_price = cart_total>
     <cfset payment_status = "pending">
-    <cfif #payment_type# EQ 'COD'>
+    <cfif payment_type EQ 'COD'>
         <cfset payment_status = "success">
     </cfif>
     <cfset order_status = "pending">
@@ -38,23 +45,25 @@
         values('#user_id#','#address#','#city#','#pincode#','#payment_type#','#total_price#','#payment_status#','#order_status#')
     </cfquery>
     <cfset order_id = result.generatedkey>
-    <cfoutput>#order_id#</cfoutput>
-    <cfloop from="1" to="#cartitems.recordCount#" index="i">
-        <cfset row = queryGetRow(cartitems,#i#)>
-        <cfset product_id = #row.product_id#>
-        <cfset price = #row.price#>
-        <cfset quantity = #row.quantity#>
-        <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
+    
+    <cfloop from="1" to="#cart_items.recordCount#" index="i">
+        <!---<cfset row = queryGetRow(cart_items,i)>
+        <cfset product_id = row.product_id>
+        <cfset price = row.price>
+        <cfset quantity = row.quantity>
+        <cfset cart_total = cart_total + (row.price * row.quantity)>
+        <cfset product_name = row.name>
+        <cfset filepath = row.filepath>--->
     
         <cfquery name="insert_order">
-            insert into order_detail(order_id,product_id,quantity,price,user_id)
-            values('#order_id#','#product_id#','#quantity#','#price#','#user_id#')
+            insert into order_detail(order_id,quantity,price,user_id,product_name,filepath)
+            values('#order_id#','#quantity#','#price#','#user_id#','#product_name#','#filepath#')
         </cfquery>
     </cfloop>
     <cfquery name="delete">
         delete from cart;
     </cfquery>
-    <cflocation url="thankyou.cfm">
+    <cflocation url="thankyou.cfm">--->
 </cfif>
 
 <div class="checkout-wrap ptb--100">
@@ -76,7 +85,7 @@
                                                 
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                        <input type="text" name="address" placeholder="Street Address" required>
+                                                        <input type="text" name="address"  placeholder="Street Address" required>
                                                     </div>
                                                 </div>
                                                 
@@ -116,10 +125,10 @@
                     <h5 class="order-details__title">Your Order</h5>
                     <div class="order-details__item">
                         <cfset cart_total = 0>
-                        <cfloop from="1" to="#cartitems.recordCount#" index="i">
-                            <cfset row = queryGetRow(cartitems,#i#)>
-                            <cfset row_price = #row.price#>
-                            <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
+                        <cfloop from="1" to="#cart_items.recordCount#" index="i">
+                            <cfset row = queryGetRow(cart_items,i)>
+                            <cfset row_price = row.price>
+                            <cfset cart_total = cart_total + (row.price * row.quantity)>
                             <div class="single-item">
                                 <div class="single-item__thumb">
                                     <img src="Images/<cfoutput>#row.filepath#</cfoutput>" alt="ordered item">

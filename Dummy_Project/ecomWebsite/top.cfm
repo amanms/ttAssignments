@@ -7,15 +7,19 @@
 </cfquery>--->
 <cfset count = 0>
 <cfif (structKeyExists(session,'USER_LOGIN') AND session['USER_LOGIN'] EQ 'yes')>
-    <cfset userid = #session['USER_ID']#>
-    <cfif isNumeric(#userid#)>
-        <cfquery name="cartitems">
+    <cfset userid = session['USER_ID']>
+    <cfif isNumeric(userid)>
+        <!---<cfquery name="cartitems">
             select * from cart where userId = #userid#;
         </cfquery>
         <cfset count = cartitems.recordCount>
     <cfelse>
         <cflocation url="logout.cfm">
+    </cfif>--->
+        <cfset cart_items = functions.get_cart_items(userid)>
+        <cfset count = cart_items.recordCount>
     </cfif>
+
 </cfif>
 
 

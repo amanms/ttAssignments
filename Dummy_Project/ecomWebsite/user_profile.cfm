@@ -13,9 +13,7 @@
                                         <th class="product-name">Name</th>
                                         <th class="product-name">Email</th>
                                         <th class="product-name">Mobile</th>
-                                        
-                                        
-                                        
+                                                                
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -24,7 +22,6 @@
                                         select * from users where id = #uid#
                                     </cfquery>
                                     
-                                        
                                         <tr>
                                             <td class="product-name"><cfoutput>#user.name#</cfoutput><br/><br/>
                                                 <a href="edit_name.cfm?id=<cfoutput>#uid#</cfoutput>">Edit</a>

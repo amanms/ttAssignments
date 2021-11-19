@@ -1,5 +1,12 @@
 <!---<cfinclude template="functions.inc.cfm">--->
 <cfcomponent output="false">
+    <cfset functions = createObject('component','functions')>
+    <cffunction name="get_cart_items" access="public" output="true" returntype="query">
+        <cfargument name="user_id" type="numeric" required="true">
+        <cfquery name="fetch_cart_items">
+            select cart.filepath,cart.name,cart.price,cart.id where userId = #arguments.user_id#
+        </cfquery>
+    </cffunction>
     <cffunction name="manage_cart_items" access="remote" output="true" returntype="void">
         <cfargument name="pid" type="string" required="true">
         <cfargument name="qty" type="string" required="true">
@@ -14,7 +21,7 @@
                     <cfset result = "itempresent">
                     <cfoutput>#result#</cfoutput>
                 <cfelse>
-                    <cfset get_product = functions.get_product(product_id=pid)>
+                    <cfset get_product = fuctions.get_product(product_id=pid)>
                     <cfset filepath = get_product[1].filepath>
                     <cfset name = get_product[1].name>
                     <cfset price = get_product[1].price>

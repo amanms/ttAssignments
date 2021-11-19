@@ -35,11 +35,32 @@
         </cfquery>
     </cffunction>
            <!--- function to get categories by id --->
-    <cffunction name="check" access="public" output="false" returntype="numeric">
-        <cfargument name="a" type="numeric" required="false">
-        <cfargument name="b" type="numeric" required="false">
-        <cfargument name="c" type="numeric" required="false">
-        <cfset result = arguments.a+arguments.b+arguments.c>
-        <cfreturn result/>
+    <cffunction name="on_submit_category" access="remote" output="true" returntype="string">
+        <cfargument name="category_name" type="string" required="true">
+        <cfset  category_list_by_name = get_category(category='#arguments.category_name#')>
+        <cfset var msg=''>
+        <cfif arrayLen(category_list_by_name) GT 0>
+            <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+                <cfif url.id EQ category_list_by_name [1].id>
+                <cfelse>
+                    <cfset msg="category already exists">
+                </cfif>
+            <cfelse>
+                <cfset msg="category already exists">
+            </cfif>
+        </cfif>
+        <cfif msg EQ ''>
+            <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+                <cfset  update_category = edit_category(id='#url.id#',category='#arguments.category_name#')>
+            <cfelse>
+                
+                <cfset  insert_category = edit_category(category='#arguments.category_name#')>
+            </cfif>
+            
+            <cfset msg="category added successfully">
+        </cfif>
+        <cfreturn msg/>
     </cffunction>
+
+
 </cfcomponent>

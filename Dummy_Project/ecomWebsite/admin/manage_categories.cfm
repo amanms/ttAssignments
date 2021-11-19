@@ -17,27 +17,8 @@
 </cfif>
 
 <cfif structKeyExists(form,'submit')>
-	<cfset category = Replace(form.categories, " ", "", "ALL")/>>
-	<cfset  category_list_by_name = categories.get_category(category='#category#')>
-	<cfif arrayLen(category_list_by_name) GT 0>
-		<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
-			<cfif url.id EQ category_list_by_name [1].id>
-			<cfelse>
-				<cfset msg  = "categories already exist">
-			</cfif>
-		<cfelse>
-			<cfset msg  = "categories already exist">
-		</cfif>
-	</cfif>
-	<cfif msg EQ ''>
-		<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
-			<cfset  update_category = categories.edit_category(id='#url.id#',category='#category#')>
-		<cfelse>
-			<cfset  insert_category = categories.edit_category(category='#category#')>
-		</cfif>
-		
-		<cflocation url="categories.cfm">
-	</cfif>
+	<cfset category = Replace(form.categories, " ", "", "ALL")/>
+	<cfset msg = categories.on_submit_category(category_name='#category#')>
 	
 </cfif>
 
@@ -51,8 +32,9 @@
 							<div class="card-body card-block">
 							   <div class="form-group">
 									<label for="categories" class=" form-control-label">Categories</label>
-									<input type="text" name="categories" placeholder="Enter categories name" class="form-control" required value="<cfoutput>#category_name#</cfoutput>" >
+									<input type="text" name="categories" id = "categories" placeholder="Enter categories name" class="form-control" required value="<cfoutput>#category_name#</cfoutput>" >
 								</div>
+								<span class="field_error" id="categories_error"></span>
 							   <button  name="submit" type="submit" class="btn btn-lg btn-info btn-block">
 							   <span id="payment-button-amount">Submit</span>
 							   </button>

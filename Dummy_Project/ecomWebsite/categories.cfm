@@ -6,26 +6,26 @@
 <cfset old_selected ="">
 <cfset sort_order="">
 <cfif structKeyExists(url,'sort')>
-    <cfset sort = #url.sort#>
-    <cfif #sort# EQ "price_high">
+    <cfset sort = url.sort>
+    <cfif sort EQ "price_high">
         <cfset sort_order = " order by products.price desc ">
         <cfset price_high_selected ="selected">
     </cfif>
-    <cfif #sort# EQ "price_low">
+    <cfif sort EQ "price_low">
         <cfset sort_order = " order by products.price asc ">
         <cfset price_low_selected ="selected">
     </cfif>
-    <cfif #sort# EQ "new">
+    <cfif sort EQ "new">
         <cfset sort_order = " order by products.id desc ">
         <cfset new_selected ="selected">
     </cfif>
-    <cfif #sort# EQ "old">
+    <cfif sort EQ "old">
         <cfset sort_order = " order by products.id asc ">
         <cfset old_selected ="selected">
     </cfif>
 </cfif>
-<cfif (structKeyExists(url,'id') AND #url.id# NEQ '')>
-    <cfset cat_id = #url.id#>
+<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+    <cfset cat_id = url.id>
     <cfif isNumeric('#cat_id#')>
         <cfset get_product = functions.get_product_category('','#cat_id#','','#sort_order#')>
     <cfelse>

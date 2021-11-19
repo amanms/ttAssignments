@@ -42,6 +42,7 @@ function user_register(){
                 console.log(result)
                 var data = $.trim(result);
                 if(data === 'present'){
+                    console,log(data)
                     jQuery('#email_error').html('Email id already present');
                 }
                 if(data === 'insert'){
@@ -73,9 +74,11 @@ function user_login(){
             url:'components/register_submit.cfc?method=login_user',
             type:'post',
             data:'email='+email+'&password='+password,
+            dataType:"json",
             success: function (result) {
-                var data = $.trim(result);
+                var data = $.trim(result.val);
                 if(data === 'wrong'){
+                    
                     jQuery('.login_msg p').html('Please enter valid login details');
                 }
                 if(data === 'valid'){
@@ -95,7 +98,7 @@ function manage_cart(pid,type){
     }
 	
     jQuery.ajax({
-        url:'components/manage_cart.cfc?method=manage_cart_items',
+        url:'components/functions.cfc?method=manage_cart_items',
         type:'post',
         data:'pid='+pid+'&qty='+qty+'&type='+type,
         success: function (result) {

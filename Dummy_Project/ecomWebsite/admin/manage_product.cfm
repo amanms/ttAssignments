@@ -58,13 +58,12 @@
 		<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
 			<cfif url.id EQ product_by_name [1].id>
 			<cfelse>
-				<cfset msg  = "categories already exist">
+				<cfset msg  = "product already exist">
 			</cfif>
 		<cfelse>
-			<cfset msg  = "categories already exist">
+			<cfset msg  = "product already exist">
 		</cfif>
 	</cfif>
-	<cfdump var="#product_by_name#"/>
 
 	<!---<cfquery name="checkproductname">
 		select * from dbo.products where name = '#productname#';
@@ -118,7 +117,7 @@
 											select id,categories from categories order by categories asc;
 										</cfquery>
 										<cfloop query="getcategory">
-											<cfif #getcategory.id# EQ #categories_id#>
+											<cfif getcategory.id EQ categories_id>
 												<option selected value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.categories#</cfoutput></option>
 											<cfelse>
 												<option value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.categories#</cfoutput></option>

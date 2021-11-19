@@ -1,14 +1,12 @@
+<!--- Dashboard page to display total number of users,products and orders --->
 <cfinclude template="top.inc.cfm">
-
-<cfset index = createObject('component','components/index')>
-<cfset total_users = index.user_count()>
-<cfset total_product = index.product_count()>
-<cfset total_order = index.order_count()>
+<!--- instance of toatl count details component--->
+<cfset total_count_obj = createObject('component','components/total_count')>
 
 <div class="cardBox">
     <div class="card">
         <div>
-            <div class="numbers"><cfoutput>#total_users#</cfoutput></div>
+            <div class="numbers"><cfoutput>#total_count_obj.get_total_count(user_count='user_count')#</cfoutput></div>
             <div class="cardName">User Count</div>
         </div>
         <div class="iconBox">
@@ -17,7 +15,7 @@
     </div>
     <div class="card">
         <div>
-            <div class="numbers"><cfoutput>#total_product#</cfoutput></div>
+            <div class="numbers"><cfoutput>#total_count_obj.get_total_count(product_count='product_count')#</cfoutput></div>
             <div class="cardName">Product Count</div>
         </div>
         <div class="iconBox">
@@ -26,7 +24,7 @@
     </div>
     <div class="card">
         <div>
-            <div class="numbers"><cfoutput>#total_order#</cfoutput></div>
+            <div class="numbers"><cfoutput>#total_count_obj.get_total_count(order_count='order_count')#</cfoutput></div>
             <div class="cardName">Order Count</div>
         </div>
         <div class="iconBox">

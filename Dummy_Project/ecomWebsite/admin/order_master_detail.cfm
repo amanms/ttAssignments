@@ -39,8 +39,10 @@
                             </cfquery>
                             
                             <cfquery name="order">
-                                select distinct(order_detail.id),order_detail.*,products.name,products.filepath from order_detail,products
-                                 where order_detail.order_id=#id# and order_detail.product_id = products.id     
+                                <!---select distinct(order_detail.id),order_detail.*,products.name,products.filepath from order_detail,products
+                                 where order_detail.order_id=#id# and order_detail.product_id = products.id--->
+                                 select distinct(order_detail.id),order_detail.* from order_detail
+                                        where order_detail.order_id =#id#      
                             </cfquery>
                            
                             <cfloop from="1" to="#order.recordCount#" index="i">
@@ -48,7 +50,7 @@
                                 <cfset cart_total = 0>
                                 <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
                                 <tr>
-                                    <td class="product-name"><cfoutput>#row.name#</cfoutput></td>
+                                    <td class="product-name"><cfoutput>#row.product_name#</cfoutput></td>
                                     <td class="product-name"><img src="../Images/<cfoutput>#row.filepath#</cfoutput>"</td>
                                     <td class="product-name"><cfoutput>#row.quantity#</cfoutput></td>
                                     <td class="product-name"><cfoutput>#row.price#</cfoutput></td>
