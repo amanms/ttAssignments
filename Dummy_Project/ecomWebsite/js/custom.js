@@ -42,7 +42,6 @@ function user_register(){
                 console.log(result)
                 var data = $.trim(result);
                 if(data === 'present'){
-                    console,log(data)
                     jQuery('#email_error').html('Email id already present');
                 }
                 if(data === 'insert'){
@@ -74,9 +73,9 @@ function user_login(){
             url:'components/register_submit.cfc?method=login_user',
             type:'post',
             data:'email='+email+'&password='+password,
-            dataType:"json",
             success: function (result) {
-                var data = $.trim(result.val);
+                var data = $.trim(result);
+                
                 if(data === 'wrong'){
                     
                     jQuery('.login_msg p').html('Please enter valid login details');

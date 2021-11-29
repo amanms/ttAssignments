@@ -20,7 +20,7 @@
 		<cfset price=product_by_id[1].price>
 		<cfset description = product_by_id[1].description>
 	<cfelse>
-		<cflocation url="categories.cfm">
+		<cflocation url="products.cfm">
 	</cfif>
 	<!---<cfset id = #url.id#>
 	<cfif isNumeric('#id#')>

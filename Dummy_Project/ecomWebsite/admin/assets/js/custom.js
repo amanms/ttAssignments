@@ -1,4 +1,4 @@
-function check_category(){
+/*function check_category(){
     jQuery('.field_error').html('');
 	var category_name = jQuery("#categories").val();
 	var is_error = '';
@@ -29,4 +29,7 @@ function check_category(){
         });
     }
 
+}*/
+function check_delete(){
+    return confirm('Are you sure you want to delete this record');
 }

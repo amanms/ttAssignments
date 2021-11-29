@@ -3,6 +3,12 @@
 
 <cfset product = createObject('component','components/product')>
 <cfset product_detail = product.get_product()>
+<cfif (structKeyExists(url,'type') AND url.type EQ 'delete') >
+	<cfquery name="delete_item">
+		delete from products where id='#url.id#'
+	</cfquery>
+
+</cfif>
 
 <div class="content pb-0">
 	<div class="orders">
@@ -41,7 +47,7 @@
 							   		<td>
 										<cfoutput><span class='badge badge-edit'><a href='manage_product.cfm?id=#product_detail[i].id#'>Edit</a></span>&nbsp;</cfoutput>
 								
-										<cfoutput><span class='badge badge-delete'><a href='?type=delete&id=#product_detail[i].id#'>Delete</a></span></cfoutput>
+										<cfoutput><span class='badge badge-delete'><a href='?type=delete&id=#product_detail[i].id#' onclick="return check_delete()">Delete</a></span></cfoutput>
 									</td>
 								</tr> 
 
