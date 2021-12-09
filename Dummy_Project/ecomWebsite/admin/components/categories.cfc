@@ -40,17 +40,18 @@
         <cfset  category_list_by_name = get_category(category='#arguments.category_name#')>
         <cfset var msg=''>
         <cfif arrayLen(category_list_by_name) GT 0>
-            <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+            <!---<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
                 <cfif url.id EQ category_list_by_name [1].id>
                 <cfelse>
                     <cfset msg="category already exists">
                 </cfif>
             <cfelse>
                 <cfset msg="category already exists">
-            </cfif>
+            </cfif>--->
+            <cfset msg="category already exists">
         </cfif>
         <cfif msg EQ ''>
-            <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+            <cfif url.id NEQ ''>
                 <cfset  update_category = edit_category(id='#url.id#',category='#arguments.category_name#')>
             <cfelse>
                 

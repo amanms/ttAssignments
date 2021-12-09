@@ -6,9 +6,9 @@
         <cfset product_array = arrayNew(1)>
         <cfquery name="product">
             <cfif arguments.id NEQ ''>
-                select * from dbo.products where id = <cfqueryparam value="#arguments.id#" cfsqltype="integer">
+                select * from dbo.products where id = <cfqueryparam value="#arguments.id#" cfsqltype="cf_sql_integer">
             <cfelseif arguments.product_name NEQ '' >
-                select products.id,products.name from products where name = <cfqueryparam value="#arguments.product_name#" cfsqltype="varchar">
+                select products.id,products.name from products where name = <cfqueryparam value="#arguments.product_name#" cfsqltype="cf_sql_varchar">
             <cfelse>
                 SELECT products.id,products.name,products.filePath,products.price,categories.categories from products,categories where products.categoryId = categories.id order by id desc;        
             </cfif>
@@ -31,18 +31,29 @@
         <cfquery name="update_product">
             <cfif (arguments.id NEQ '')>
                 update products 
-                set categoryId = <cfqueryparam value="#arguments.categories_id#" cfsqltype="integer">,
-                    name = <cfqueryparam value="#arguments.product_name#" cfsqltype="varchar">,
-                    filepath = <cfqueryparam value="#arguments.filepath#" cfsqltype="varchar">,
-                    description = <cfqueryparam value="#arguments.description#" cfsqltype="varchar">,
-                    size = <cfqueryparam value="#arguments.size#" cfsqltype="varchar">,
-                    colour = <cfqueryparam value="#arguments.colour#" cfsqltype="varchar">,
-                    price = <cfqueryparam value="#arguments.price#" cfsqltype="integer">
-                where id = <cfqueryparam value="#arguments.id#" cfsqltype="integer">
+                set categoryId = <cfqueryparam value="#arguments.categories_id#" cfsqltype="cf_sql_integer">,
+                    name = <cfqueryparam value="#arguments.product_name#" cfsqltype="cf_sql_varchar">,
+                    filepath = <cfqueryparam value="#arguments.filepath#" cfsqltype="cf_sql_varchar">,
+                    description = <cfqueryparam value="#arguments.description#" cfsqltype="cf_sql_varchar">,
+                    size = <cfqueryparam value="#arguments.size#" cfsqltype="cf_sql_varchar">,
+                    colour = <cfqueryparam value="#arguments.colour#" cfsqltype="cf_sql_varchar">,
+                    price = <cfqueryparam value="#arguments.price#" cfsqltype="cf_sql_integer">
+                where id = <cfqueryparam value="#arguments.id#" cfsqltype="cf_sql_integer">
             <cfelse>
-                insert into dbo.products(categoryId,name,filepath,description,size,colour,price) 
-				values(<cfqueryparam value="#arguments.categories_id#" cfsqltype="integer">,<cfqueryparam value="#arguments.product_name#" cfsqltype="varchar">,<cfqueryparam value="#arguments.filepath#" cfsqltype="varchar">,
-                <cfqueryparam value="#arguments.description#" cfsqltype="varchar">,<cfqueryparam value="#arguments.size#" cfsqltype="varchar">,<cfqueryparam value="#arguments.colour#" cfsqltype="varchar">,<cfqueryparam value="#arguments.price#" cfsqltype="integer">)
+                insert into dbo.products(categoryId,
+                                        name,
+                                        filepath,
+                                        description,
+                                        size,
+                                        colour,
+                                        price) 
+				values(<cfqueryparam value="#arguments.categories_id#" cfsqltype="cf_sql_integer">,
+                <cfqueryparam value="#arguments.product_name#" cfsqltype="cf_sql_varchar">,
+                <cfqueryparam value="#arguments.filepath#" cfsqltype="cf_sql_varchar">,
+                <cfqueryparam value="#arguments.description#" cfsqltype="cf_sql_varchar">,
+                <cfqueryparam value="#arguments.size#" cfsqltype="cf_sql_varchar">,
+                <cfqueryparam value="#arguments.colour#" cfsqltype="cf_sql_varchar">,
+                <cfqueryparam value="#arguments.price#" cfsqltype="cf_sql_integer">)
             </cfif>
         </cfquery>
         

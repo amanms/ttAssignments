@@ -54,7 +54,7 @@
 
 	<!---<cfset category = Replace(form.categories, " ", "", "ALL")/>>--->
 	<cfset  product_by_name = product.get_product(product_name='#product_name#')>
-	<cfif arrayLen(product_by_name) GT 0>
+	<!---<cfif arrayLen(product_by_name) GT 0>
 		<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
 			<cfif url.id EQ product_by_name [1].id>
 			<cfelse>
@@ -63,6 +63,9 @@
 		<cfelse>
 			<cfset msg  = "product already exist">
 		</cfif>
+	</cfif>--->
+	<cfif arrayLen(product_by_name) GT 0>
+		<cfset msg  = "product already exist">
 	</cfif>
 
 	<!---<cfquery name="checkproductname">
@@ -80,7 +83,7 @@
 		</cfif>
 	</cfif>--->
 	<cfif msg EQ ''>
-		<cfif (structKeyExists(url,'id') AND #url.id# NEQ '')>
+		<cfif url.id NEQ ''>
 			<cfset update_product = product.update_product(id='#url.id#',categories_id='#categories_id#',product_name='#product_name#',description='#description#',size='#size#',price='#price#',filepath='#filepath#')>
 			<!---<cfquery name="updateproduct">
 				update dbo.products set categoryId = '#categories_id#',name='#productname#',filepath='#filepath#',

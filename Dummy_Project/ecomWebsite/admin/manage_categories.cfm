@@ -7,12 +7,16 @@
 
 <cfset msg=''>
 <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
-	<cfset  category_list_by_id = categories.get_category(id='#url.id#')>
-	<cfif arrayLen(category_list_by_id) GT 0>
-		<cfset category_name = category_list_by_id[1].categories>
+	<cfif isNumeric(url.id)>
+		<cfset  category_list_by_id = categories.get_category(id='#url.id#')>
+		<cfif arrayLen(category_list_by_id) GT 0>
+			<cfset category_name = category_list_by_id[1].categories>
+		
+		</cfif>
 	<cfelse>
 		<cflocation url="categories.cfm">
 	</cfif>
+	
 	
 </cfif>
 
