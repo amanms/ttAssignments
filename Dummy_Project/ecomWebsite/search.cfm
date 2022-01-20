@@ -4,8 +4,8 @@
 <cfif (structKeyExists(url,'str') AND #url.str# NEQ '')>
     <cfset str = #url.str#>
     <cfquery name="search">
-        select products.*,categories.categories from products,categories where products.status=1 
-        and products.categoryId=categories.id and (products.name like '%#str#%' or products.description like '%#str#%')
+        select products.*,categories.categories from products,categories where 
+        products.categoryId=categories.id and (products.name like '%#str#%' or products.description like '%#str#%')
         order by products.id desc 
     </cfquery>
 <cfelse>

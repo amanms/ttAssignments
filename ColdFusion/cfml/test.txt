@@ -1,107 +1,53 @@
-
-
-
-
-<html>
-    <head><script type="text/javascript">/* <![CDATA[ */_cf_loadingtexthtml="<img alt=' ' src='/cf_scripts/scripts/ajax/resources/cf/images/loading.gif'/>";
-_cf_contextpath="";
-_cf_ajaxscriptsrc="/cf_scripts/scripts/ajax";
-_cf_jsonprefix='//';
-_cf_websocket_port=8581;
-_cf_flash_policy_port=1243;
-_cf_clientid='2DD2B601360F86859187F0CFB3C760ED';/* ]]> */</script><script type="text/javascript" src="/cf_scripts/scripts/ajax/messages/cfmessage.js"></script>
-<script type="text/javascript" src="/cf_scripts/scripts/ajax/package/cfajax.js"></script>
-<script type="text/javascript" src="/cf_scripts/scripts/cfform.js"></script>
-<script type="text/javascript" src="/cf_scripts/scripts/masks.js"></script>
-<script type="text/javascript" src="/cf_scripts/scripts/cfformhistory.js"></script>
-
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
-      <title>ColdFusion Registration system!</title>
-    
-<script type="text/javascript">/* <![CDATA[ */
-	ColdFusion.Ajax.importTag('CFDIV');
-/* ]]> */</script>
-
-<script type="text/javascript">/* <![CDATA[ */
-	ColdFusion.Ajax.importTag('CFFORM');
-/* ]]> */</script>
-
-<script type="text/javascript">/* <![CDATA[ */
-	if (window.ColdFusion) ColdFusion.required['userName']=true;
-/* ]]> */</script>
-
-<script type="text/javascript">/* <![CDATA[ */
-	if (window.ColdFusion) ColdFusion.required['password']=true;
-/* ]]> */</script>
-<script type="text/javascript">
 <!--
-    _CF_checkCFForm_1 = function(_CF_this)
-    {
-        //reset on submit
-        _CF_error_exists = false;
-        _CF_error_messages = new Array();
-        _CF_error_fields = new Object();
-        _CF_FirstErrorField = null;
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
 
-        //form element userName required check
-        if( _CF_hasValue(_CF_this['userName'], "TEXT", false ) )
-        {
-            //form element userName 'EMAIL' validation checks
-            if (!_CF_checkEmail(_CF_this['userName'].value, true))
-            {
-                _CF_onError(_CF_this, "userName", _CF_this['userName'].value, "Please enter your email Id");
-                _CF_error_exists = true;
-            }
+      http://www.apache.org/licenses/LICENSE-2.0
 
-        }else {
-            _CF_onError(_CF_this, "userName", _CF_this['userName'].value, "Please enter your email Id");
-            _CF_error_exists = true;
-        }
-
-        //form element password required check
-        if( !_CF_hasValue(_CF_this['password'], "PASSWORD", false ) )
-        {
-            _CF_onError(_CF_this, "password", _CF_this['password'].value, "Please enter your password");
-            _CF_error_exists = true;
-        }
-
-
-        //display error messages and return success
-        if( _CF_error_exists )
-        {
-            if( _CF_error_messages.length > 0 )
-            {
-                // show alert() message
-                _CF_onErrorAlert(_CF_error_messages);
-                // set focus to first form error, if the field supports js focus().
-                if( _CF_this[_CF_FirstErrorField].type == "text" )
-                { _CF_this[_CF_FirstErrorField].focus(); }
-
-            }
-            return false;
-        }else {
-            return true;
-        }
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3c.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<STYLE TYPE="text/css">
+    body {
+       color: #000000;
+       background-color: #FFFFFF;
+       font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+       font-size: 9pt;
+       margin: 10px 10px;
     }
-//-->
-</script>
-</head>
-    <body>
-  
-      <div id="cf_div184020517010601" class="container mt-4">
-      <h3>Please Login  Here:</h3>
-      <hr>
-      <form name="CFForm_1" id="CFForm_1" action="&#x2f;ColdFusion&#x2f;cfml&#x2f;Login.cfm" method="post" onsubmit="return ColdFusion.Ajax.checkForm(this, _CF_checkCFForm_1,'cf_div184020517010601')"><div id="cf_div184020517010602" class="form-group">
-            <label for="username">User Name</label>
-            <input name="userName" id="userName"  type="text" class="form-control"  placeholder="Email"  /></div><div id="cf_div184020517010603" class="form-group">
-          <label for="password">Password</label>
-          <input name="password" id="password"  type="password" class="form-control"  placeholder="Password"  /></div>
-        <button type="submit" name = "loginButton" class="btn btn-primary">Log in</button>
-      </form>
-</div>
-  
-    </body>
-  </html>
+    p#footer {
+       text-align: right;
+       font-size: 80%;
+    }
+</STYLE>
+<TITLE>Not Found!</TITLE>
+</HEAD>
+<BODY>
+<H1>The requested URL was not found on this server!</H1>
+<P>
+If you entered the URL manually please check your spelling and try again.
+</P>
+<P>
+<BR/>&nbsp;<BR/>&nbsp;<BR/>&nbsp;<BR/>&nbsp;
+Tomcat/ISAPI/isapi_redirector/1.2.46
+<BR/>&nbsp;
+<HR/>
+<P id="footer">
+Copyright &copy; 1999-2018 Apache Software Foundation<BR/>
+All Rights Reserved
+</P>
+</BODY>
+</HTML>
+
