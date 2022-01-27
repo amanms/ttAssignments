@@ -28,13 +28,14 @@
 							
 							<cfloop from="1" to="#arrayLen(category_list)#" index="i">
 								
-								<tr>
+								<tr style='background: whitesmoke;'>
 					
 									<td class="serial"><cfoutput>#i#</cfoutput></td>
 							   		<td class="id"><cfoutput>#category_list[i].id#</cfoutput></td>
-							   		<td><cfoutput>#category_list[i].categories#</cfoutput></td>
+							   		<td><cfoutput>#category_list[i].category_name#</cfoutput></td>
 							   		<td>
-										<cfoutput><span class='badge badge-edit'><a href='manage_categories.cfm?id=#category_list[i].id#'>Edit</a></span>&nbsp;</cfoutput>
+										<cfoutput><button class='btn btn-primary'><a href='manage_categories.cfm?id=#category_list[i].id#'>Edit</a></button>&nbsp;</cfoutput>
+										<cfoutput><button class='delete btn btn-danger' id="delete" value="#category_list[i].id#"><a href='?type=delete&id=#category_list[i].id#' >Delete</a></button></cfoutput>
 										
 									</td>
 								</tr> 

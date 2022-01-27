@@ -9,9 +9,9 @@
                 select * from categories where id = <cfqueryparam value="#arguments.id#" cfsqltype="integer">
             
             <cfelseif arguments.category NEQ ''>
-                select * from categories where categories = <cfqueryparam value="#arguments.category#" cfsqltype="varchar">
+                select * from categories where category_name = <cfqueryparam value="#arguments.category#" cfsqltype="varchar">
             <cfelse>
-                select * from categories order by categories asc;
+                select * from categories order by category_name asc;
             </cfif>
             
         </cfquery>
@@ -24,13 +24,13 @@
         <!--- function to update and insert into categories --->
     <cffunction name="edit_category" access="public" output="true" returntype="void">
         <cfargument name="id" type="string" required="false" default="">
-        <cfargument name="category" type="string" required="false" default="">
+        <cfargument name="category_name" type="string" required="false" default="">
         <cfquery name="update_category">
             <cfif (arguments.id NEQ '')>
-                update categories set categories = <cfqueryparam value="#arguments.category#" cfsqltype="varchar">
+                update categories set category_name = <cfqueryparam value="#arguments.category_name#" cfsqltype="varchar">
                 where id = <cfqueryparam value="#arguments.id#" cfsqltype="integer">
             <cfelse>
-                insert into categories (categories) values(<cfqueryparam value="#arguments.category#" cfsqltype="varchar">)
+                insert into categories (category_name) values(<cfqueryparam value="#arguments.category_name#" cfsqltype="varchar">)
             </cfif>
         </cfquery>
     </cffunction>
@@ -51,12 +51,18 @@
             <cfset msg="category already exists">
         </cfif>
         <cfif msg EQ ''>
-            <cfif url.id NEQ ''>
+            <cfif structKeyExists(url,'id') AND url.id NEQ ''>
+                <cfset  update_category = edit_category(id='#url.id#',category_name='#arguments.category_name#')>
+            <cfelse>
+                <cfset  insert_category = edit_category(category_name='#arguments.category_name#')>
+            </cfif>
+            
+            <!---<cfif url.id NEQ ''>
                 <cfset  update_category = edit_category(id='#url.id#',category='#arguments.category_name#')>
             <cfelse>
                 
                 <cfset  insert_category = edit_category(category='#arguments.category_name#')>
-            </cfif>
+            </cfif>--->
             
             <cfset msg="category added successfully">
         </cfif>

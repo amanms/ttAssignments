@@ -1,4 +1,5 @@
 <cfinclude template="functions.inc.cfm">
 
-<cfset product = createObject('component','components/index')>
-<cfdump var="#product.get_total_count(order_count='order_count')#"/>
+<cfset product = createObject('component','components/delete_record')>
+<cfset product.delete_category(17)>
+<cfdump var="#product.records#"/>

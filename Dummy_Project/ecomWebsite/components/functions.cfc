@@ -3,7 +3,7 @@
     <cffunction name="get_category" access="public" output="false" returntype="array">
         <cfset category_array = arrayNew(1)>
         <cfquery name="category">
-            select categories.id,categories.categories from categories order by categories asc;
+            select categories.id,categories.category_name from categories order by category_name asc;
         </cfquery>
         <cfloop from ="1" to = "#category.recordCount#" index="i">
             <cfset category_array[i] = queryGetRow('#category#',#i#)>

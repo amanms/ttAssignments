@@ -22,10 +22,15 @@
             select name from users where id = #arguments.id#;
         </cfquery>
         <cfreturn result.name/>
-    <cffunction>--->
-    <cfset response=structNew()>
-    <cfset response.status=201>
-    <cfset response.content="<customer id="&id&"><name>"&name&"</name></customer>"> <cfset response.headers=structNew()>
-    <cfset response.headers.location="http://localhost:8500/rest/CustomerService/customers/123">
+    <cffunction>
+    <cffunction name="getCustomer" httpMethod="GET" access="remote" produces="application/xml"  restPath="{id}" return="string">
+        <cfargument name="id" type="numeric" argtype="PathParam">
+        <!--- Getting the customer. --->
+        <cfquery name="result" datasource="ecomWebsite" result="rs">
+            select name from users where id = #arguments.id#
+        </cfquery>
+        <cfthrow type="RestError" errorcode="404">
+        <cfreturn result.name/>
+    </cffunction>--->
     
 </cfcomponent>

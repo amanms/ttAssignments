@@ -83,7 +83,7 @@
 		</cfif>
 	</cfif>--->
 	<cfif msg EQ ''>
-		<cfif url.id NEQ ''>
+		<cfif structKeyExists(url,'id') AND url.id NEQ ''>
 			<cfset update_product = product.update_product(id='#url.id#',categories_id='#categories_id#',product_name='#product_name#',description='#description#',size='#size#',price='#price#',filepath='#filepath#')>
 			<!---<cfquery name="updateproduct">
 				update dbo.products set categoryId = '#categories_id#',name='#productname#',filepath='#filepath#',

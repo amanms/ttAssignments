@@ -57,7 +57,7 @@
                                     <ul class="main__menu">
                                         <li class="drop"><a href="index.cfm">Home</a></li>
                                         <cfloop from="1" to="#arrayLen(category_list)#" index="i">
-                                            <li><a href="categories.cfm?id=<cfoutput>#category_list[i].id#</cfoutput>"><cfoutput>#category_list[i].categories#</cfoutput></a></li>
+                                            <li><a href="categories.cfm?id=<cfoutput>#category_list[i].id#</cfoutput>"><cfoutput>#category_list[i].category_name#</cfoutput></a></li>
 
                                         </cfloop>
                                     </ul>

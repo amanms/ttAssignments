@@ -37,7 +37,7 @@
 							
 							<cfloop from="1" to="#arrayLen(product_detail)#" index="i">
 								
-								<tr>
+								<tr style='background: whitesmoke;'>
 									<td class="serial"><cfoutput>#i#</cfoutput></td>
 							   		<td><cfoutput>#product_detail[i].id#</cfoutput></td>
 							   		<td><cfoutput>#product_detail[i].categories#</cfoutput></td>
@@ -45,9 +45,9 @@
 									<td><cfoutput>#product_detail[i].filepath#</cfoutput></td>
 									<td><cfoutput>#product_detail[i].price#</cfoutput></td>
 							   		<td>
-										<cfoutput><span class='badge badge-edit'><a href='manage_product.cfm?id=#product_detail[i].id#'>Edit</a></span>&nbsp;</cfoutput>
+										<cfoutput><button class='btn btn-primary'><a href='manage_product.cfm?id=#product_detail[i].id#'>Edit</a></button>&nbsp;</cfoutput>
 								
-										<cfoutput><span class='badge badge-delete'><a href='?type=delete&id=#product_detail[i].id#' onclick="return check_delete()">Delete</a></span></cfoutput>
+										<cfoutput><button class='delete-product btn btn-danger' value="#product_detail[i].id#"><a href='?type=delete&id=#product_detail[i].id#'>Delete</a></button></cfoutput>
 									</td>
 								</tr> 
 
