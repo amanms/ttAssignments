@@ -1,19 +1,7 @@
 
 <cfinclude template="top.inc.cfm">
-<cfif (structKeyExists(url,'type') AND #url.type# NEQ '')>
-	<cfif #type# EQ 'delete'>
-		<cfif isNumeric('#id#')>
-			<cfquery name="delete">
-				delete from users where id=#id#;
-			</cfquery>
-		<cfelse>
-			<cflocation url="users.cfm.cfm">
-		</cfif>
-	</cfif>
-</cfif>
-<cfquery name="users">
-	select * from users order by id desc;
-</cfquery>
+<cfset orders = createObject('component','components/orders')>
+<cfset order_master = orders.orders()>
 <div class="content pb-0">
 	<div class="orders">
 	   <div class="row">
@@ -38,11 +26,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <cfquery name="order">
-                                select * from orders ;
-                            </cfquery>
-                            <cfloop from="1" to="#order.recordCount#" index="i">
-                                <cfset row = queryGetRow(order,#i#)>
+                            <cfloop from="1" to="#order_master.recordCount#" index="i">
+                                <cfset row = queryGetRow(order_master,i)>
                                 <tr>
                                     <td class="product-add-to-cart"><a href="order_master_detail.cfm?id=<cfoutput>#row.id#</cfoutput>"><cfoutput>#row.id#</cfoutput></a></td>
                                     <td class="product-name"><cfoutput>#row.added_on#</cfoutput></td>

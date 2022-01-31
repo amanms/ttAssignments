@@ -145,8 +145,7 @@ function reset_password(){
                     jQuery('.login_msg p').html('Please re-enter your password');
                 }
                 if(data === 'valid'){
-                    console.log(10)
-                    window.location.href = "logout.cfm";
+                    jQuery('.login_msg p').html('Password successfully changed');
                 }
             }
         });

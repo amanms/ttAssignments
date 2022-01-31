@@ -10,11 +10,12 @@
 	<cfif isNumeric(url.id)>
 		<cfset  category_list_by_id = categories.get_category(id='#url.id#')>
 		<cfif arrayLen(category_list_by_id) GT 0>
-			<cfset category_name = category_list_by_id[1].categories>
-		
+			<cfset category_name = category_list_by_id[1].category_name>
+		<cfelse>
+			<cflocation url="error1.cfm">
 		</cfif>
 	<cfelse>
-		<cflocation url="categories.cfm">
+		<cflocation url="error1.cfm">
 	</cfif>
 	
 	

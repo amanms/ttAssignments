@@ -1,10 +1,10 @@
 
 <cfinclude template="top.cfm">
 
-<cfif (structKeyExists(url,'str') AND #url.str# NEQ '')>
-    <cfset str = #url.str#>
+<cfif (structKeyExists(url,'str') AND url.str NEQ '')>
+    <cfset str = url.str>
     <cfquery name="search">
-        select products.*,categories.categories from products,categories where 
+        select products.*,categories.category_name from products,categories where 
         products.categoryId=categories.id and (products.name like '%#str#%' or products.description like '%#str#%')
         order by products.id desc 
     </cfquery>
@@ -27,7 +27,7 @@
                                     <div class="shop__grid__view__wrap">
                                         <div role="tabpanel" id="grid-view" class="single-grid-view tab-pane fade in active clearfix">
                                             <cfloop from="1" to="#search.recordCount#" index="i">
-                                                <cfset row = queryGetRow('#search#',#i#)>
+                                                <cfset row = queryGetRow('#search#',i)>
 
                                             
                                                 <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">

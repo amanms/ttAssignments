@@ -1,16 +1,20 @@
 
 <cfinclude template="top.inc.cfm">
-<cfif (structKeyExists(url,'id') AND #url.id# NEQ '')>
-    <cfif isNumeric('#id#')>
-        <cfset id = #url.id#>
+<cfset orders = createObject('component','components/orders')>
+<cfset order_master = orders.orders()>
+
+<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
+    <cfif isNumeric(url.id)>
+        <cfset id = url.id>
+        <cfset order_master_detail = orders.order_details('#id#')>
     <cfelse>
         <cflocation url="order_master.cfm">
     </cfif>
 	
 </cfif>
-<cfquery name="users">
+<!---<cfquery name="users">
 	select * from users order by id desc;
-</cfquery>
+</cfquery>--->
 <div class="content pb-0">
 	<div class="orders">
 	   <div class="row">
@@ -38,15 +42,15 @@
                                 select * from orders where orders.id = #id#;
                             </cfquery>
                             
-                            <cfquery name="order">
+                            <!---<cfquery name="order">
                                 <!---select distinct(order_detail.id),order_detail.*,products.name,products.filepath from order_detail,products
                                  where order_detail.order_id=#id# and order_detail.product_id = products.id--->
                                  select distinct(order_detail.id),order_detail.* from order_detail
                                         where order_detail.order_id =#id#      
-                            </cfquery>
+                            </cfquery>--->
                            
-                            <cfloop from="1" to="#order.recordCount#" index="i">
-                                <cfset row = queryGetRow(order,#i#)>
+                            <cfloop from="1" to="#order_master_detail.recordCount#" index="i">
+                                <cfset row = queryGetRow(order_master_detail,#i#)>
                                 <cfset cart_total = 0>
                                 <cfset cart_total = #cart_total# + (#row.price# * #row.quantity#)>
                                 <tr>

@@ -1,21 +1,10 @@
 <cfinclude template="functions.inc.cfm">
 <cfset functions = createObject('component','components/functions')>
 <cfset category_list = functions.get_category()>
-
-<!---<cfquery name="category">
-    select * from dbo.categories where status = 1 order by categories asc;
-</cfquery>--->
 <cfset count = 0>
 <cfif (structKeyExists(session,'USER_LOGIN') AND session['USER_LOGIN'] EQ 'yes')>
     <cfset userid = session['USER_ID']>
     <cfif isNumeric(userid)>
-        <!---<cfquery name="cartitems">
-            select * from cart where userId = #userid#;
-        </cfquery>
-        <cfset count = cartitems.recordCount>
-    <cfelse>
-        <cflocation url="logout.cfm">
-    </cfif>--->
         <cfset cart_items = functions.get_cart_items(userid)>
         <cfset count = cart_items.recordCount>
     </cfif>
@@ -35,7 +24,7 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/shortcode/shortcodes.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/custom.css">
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>

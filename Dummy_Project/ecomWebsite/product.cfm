@@ -1,10 +1,22 @@
 
 <cfinclude template="top.cfm">
-<cfif (structKeyExists(url,'id'))>
-    <cfset product = functions.get_product_category(product_id=url.id)>
+<cfset product_filepath = ''>
+<cfset product_price = ''>
+<cfset product_name = ''>
+<cfset product_description = ''>
+<cfset product_categoryname = ''>
+<cfset product_id = ''>
+<cfif (structKeyExists(url,'id') AND url.id NEQ '' )>
+    <cfif isNumeric(url.id)>
+        <cfset product = functions.get_product_category(product_id=url.id)>
+    <cfelse>
+        <cflocation url="error.cfm">
+    </cfif>
+    
 <cfelse>
     <cflocation url="index.cfm">
 </cfif>
+    <cfif arrayLen(product) GT 0>
 
         <section class="htc__product__details bg__white ptb--100">
             
@@ -53,7 +65,7 @@
                                     <div class="sin__desc align--left">
                                         <p><span>Categories:</span></p>
                                         <ul class="pro__cat__list">
-                                            <li><cfoutput>#product['1']['categories']#</cfoutput></li>
+                                            <li><cfoutput>#product['1']['category_name']#</cfoutput></li>
                                         </ul>
                                     </div>
                                     
@@ -72,7 +84,7 @@
             </div>
             
         </section>
-        
-        
-										
+    <cfelse>
+        <cfoutput>NO record exists</cfoutput>
+    </cfif>									
 <cfinclude template="footer.cfm">    

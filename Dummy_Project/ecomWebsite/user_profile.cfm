@@ -28,7 +28,6 @@
 
                                             </td>
                                             <th class="product-name"><cfoutput>#user.email#</cfoutput><br/><br/>
-                                                <strong><a href="edit_email.cfm?id=<cfoutput>#uid#</cfoutput>">Edit</a></strong>
                                                 
                                             </th>  
                                             <th class="product-name"><cfoutput>#user.mobile#</cfoutput><br/><br/>

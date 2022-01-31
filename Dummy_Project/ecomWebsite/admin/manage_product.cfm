@@ -10,37 +10,23 @@
 <cfset description=''>
 <cfset msg=''>
 <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
-	<cfset  product_by_id = product.get_product(id='#url.id#')>
-	<cfif arrayLen(product_by_id) GT 0>
-		<cfset product_name = product_by_id[1].name>
-		<cfset categories_id=product_by_id[1].categoryId>
-		<cfset filepath=product_by_id[1].filepath>
-		<cfset size=product_by_id[1].size>
-		<cfset colour=product_by_id[1].colour>
-		<cfset price=product_by_id[1].price>
-		<cfset description = product_by_id[1].description>
-	<cfelse>
-		<cflocation url="products.cfm">
-	</cfif>
-	<!---<cfset id = #url.id#>
-	<cfif isNumeric('#id#')>
-		<cfquery name="getproduct">
-			select * from dbo.products where id = #id#;
-		</cfquery>
-		<cfif #getproduct.recordCount# GT 0>
-			<cfset productname = Replace(#getproduct.name#, " ", "", "ALL")/>>
-			<cfset categories_id='#getproduct.categoryId#'>
-			<cfset filepath='#getproduct.filepath#'>
-			<cfset size='#getproduct.size#'>
-			<cfset colour='#getproduct.colour#'>
-			<cfset price='#getproduct.price#'>
-			<cfset description = '#getproduct.description#'>
+	<cfif isNumeric(url.id)>
+		<cfset  product_by_id = product.get_product(id='#url.id#')>
+		<cfif arrayLen(product_by_id) GT 0>
+			<cfset product_name = product_by_id[1].name>
+			<cfset categories_id=product_by_id[1].categoryId>
+			<cfset filepath=product_by_id[1].filepath>
+			<cfset size=product_by_id[1].size>
+			<cfset colour=product_by_id[1].colour>
+			<cfset price=product_by_id[1].price>
+			<cfset description = product_by_id[1].description>
 		<cfelse>
-			<cflocation url="product.cfm">
+			<cflocation url="error1.cfm">
 		</cfif>
 	<cfelse>
-		<cflocation url="product.cfm">
-	</cfif>--->
+		<cflocation url="error1.cfm">
+	</cfif>
+	
 	
 </cfif>
 <cfif structKeyExists(form,'submit')>
@@ -52,9 +38,8 @@
 	<cfset price=form.price>
 	<cfset description=form.description>
 
-	<!---<cfset category = Replace(form.categories, " ", "", "ALL")/>>--->
 	<cfset  product_by_name = product.get_product(product_name='#product_name#')>
-	<!---<cfif arrayLen(product_by_name) GT 0>
+	<cfif arrayLen(product_by_name) GT 0>
 		<cfif (structKeyExists(url,'id') AND url.id NEQ '')>
 			<cfif url.id EQ product_by_name [1].id>
 			<cfelse>
@@ -63,42 +48,19 @@
 		<cfelse>
 			<cfset msg  = "product already exist">
 		</cfif>
-	</cfif>--->
-	<cfif arrayLen(product_by_name) GT 0>
-		<cfset msg  = "product already exist">
 	</cfif>
-
-	<!---<cfquery name="checkproductname">
-		select * from dbo.products where name = '#productname#';
-	</cfquery>
-	<cfset checkproductnamecount = #checkproductname.recordCount#>
-	<cfif #checkproductnamecount# GT 0>
-		<cfif (structKeyExists(url,'id') AND #url.id# NEQ '')>
-			<cfif #id# EQ #checkproductname.id#>
-			<cfelse>
-				<cfset msg  = "product already exist">
-			</cfif>
-		<cfelse>
-			<cfset msg  = "product already exist">
-		</cfif>
-	</cfif>--->
 	<cfif msg EQ ''>
 		<cfif structKeyExists(url,'id') AND url.id NEQ ''>
 			<cfset update_product = product.update_product(id='#url.id#',categories_id='#categories_id#',product_name='#product_name#',description='#description#',size='#size#',price='#price#',filepath='#filepath#')>
-			<!---<cfquery name="updateproduct">
-				update dbo.products set categoryId = '#categories_id#',name='#productname#',filepath='#filepath#',
-				description='#description#',size='#size#',colour='#colour#',price='#price#' where id=#id#;
-			</cfquery>--->
+			<cfset msg = "Product updated successfully">
+			
 		<cfelse>
 			<cfset insert_product = product.update_product(categories_id='#categories_id#',product_name='#product_name#',description='#description#',size='#size#',colour='#colour#',price='#price#',filepath='#filepath#',status = '1')>
-
-			<!---<cfquery name="insertproduct">
-				insert into dbo.products(categoryId,name,filepath,description,size,colour,price,status) 
-				values('#categories_id#','#productname#','#filepath#','#description#','#size#','#colour#','#price#',1)
-			</cfquery>--->
+			<cfset msg = "Product added successfully">
+			
 		</cfif>
 		
-		<cflocation url="product.cfm">
+		
 	</cfif>
 	
 </cfif>
@@ -117,13 +79,13 @@
 										<option>Select Category</option>
 										
 										<cfquery name="getcategory">
-											select id,categories from categories order by categories asc;
+											select id,category_name from categories order by category_name asc;
 										</cfquery>
 										<cfloop query="getcategory">
 											<cfif getcategory.id EQ categories_id>
-												<option selected value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.categories#</cfoutput></option>
+												<option selected value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.category_name#</cfoutput></option>
 											<cfelse>
-												<option value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.categories#</cfoutput></option>
+												<option value="<cfoutput>#getcategory.id#</cfoutput>"><cfoutput>#getcategory.category_name#</cfoutput></option>
 											</cfif>
 											
 										</cfloop>

@@ -1,20 +1,5 @@
 <cfinclude template="top.cfm">
-<!---<cfif (structKeyExists(session,'USER_LOGIN') AND #session['USER_LOGIN']# EQ 'yes')>
-    <cfset userid = #session['USER_ID']#>
-    <cfif isNumeric(#userid#)>
-        <cfquery name="cart_items">
-            select * from cart where userId = #userid#;
-        </cfquery>
-        <cfset count = #cartitems.recordCount#>
-        <cfif #count# EQ 0>
-            <cflocation url="index.cfm">
-        </cfif>
-    <cfelse>
-        <cflocation url="logout.cfm">
-    </cfif>
-</cfif>--->
 
-<!---<cfdump var="#cart_items#" abort="true"/>--->
 <cfset cart_total = 0>
 <cfloop from="1" to="#cart_items.recordCount#" index="i">
     <cfset row = queryGetRow(cart_items,i)>
@@ -29,31 +14,6 @@
     <cfset order = functions.order_submit(address = form.address,city = form.city,
                             pincode = form.pincode,payment_type = form.payment_type,
                             user_id = session['USER_ID'],total_price = cart_total)>
-    <!---<cfset address = form.address>
-    <cfset city = form.city>
-    <cfset pincode = form.pincode>
-    <cfset payment_type = form.payment_type>
-    <cfset user_id = session['USER_ID']>
-    <cfset total_price = cart_total>
-    <cfset payment_status = "pending">
-    <cfif payment_type EQ 'COD'>
-        <cfset payment_status = "success">
-    </cfif>
-    <cfset order_status = "pending">
-    <cfquery name="insert" result="result">
-        insert into orders (user_id,address,city,pincode,payment_type,total_price,payment_status,order_status)
-        values('#user_id#','#address#','#city#','#pincode#','#payment_type#','#total_price#','#payment_status#','#order_status#')
-    </cfquery>
-    <cfset order_id = result.generatedkey>
-    
-    <cfloop from="1" to="#cart_items.recordCount#" index="i">
-        <!---<cfset row = queryGetRow(cart_items,i)>
-        <cfset product_id = row.product_id>
-        <cfset price = row.price>
-        <cfset quantity = row.quantity>
-        <cfset cart_total = cart_total + (row.price * row.quantity)>
-        <cfset product_name = row.name>
-        <cfset filepath = row.filepath>--->
     
         <cfquery name="insert_order">
             insert into order_detail(order_id,quantity,price,user_id,product_name,filepath)

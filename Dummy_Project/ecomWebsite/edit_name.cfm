@@ -1,5 +1,5 @@
 <cfinclude template="top.cfm">
-<cfset uid = #session['USER_ID']#>
+<cfset uid = session['USER_ID']>
 <cfquery name="user">
     select * from users where id=#uid#
 </cfquery>
@@ -8,7 +8,7 @@
 <cfif structKeyExists(form,'submit')>
     <cfset user_name = #form.name#>
     
-    <cfif (structKeyExists(url,'id') AND #url.id# NEQ '')>
+    <cfif (structKeyExists(url,'id') AND url.id NEQ '')>
         <cfset id="#url.id#"/>
         <cfquery name="updatename">
             update dbo.users set name = '#user_name#' where id =#id#;

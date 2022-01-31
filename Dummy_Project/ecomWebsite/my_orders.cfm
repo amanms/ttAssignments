@@ -21,14 +21,6 @@
                                 </thead>
                                 <tbody>
                                     
-                                    <!---<cfquery name="order">
-                                        select distinct(order_detail.id),order_detail.*,products.name,products.filepath,orders.* from order_detail,products,orders
-                                        where order_detail.order_id =orders.id and order_detail.user_id=#uid# and order_detail.product_id=products.id;
-                                    </cfquery>--->
-                                    <!---<cfquery name="order">
-                                        select distinct(order_detail.id),order_detail.*,orders.* from order_detail,orders
-                                        where order_detail.order_id =orders.id and order_detail.user_id=#uid#;
-                                    </cfquery>--->
                                     <cfset order = functions.get_orders(user_id=session['USER_ID'])>
                                     <cfloop from="1" to="#order.recordCount#" index="i">
                                         <cfset row = queryGetRow(order,i)>

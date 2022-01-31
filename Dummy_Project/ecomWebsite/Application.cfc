@@ -4,6 +4,5 @@
     <cfset this.sessionManagement = true/>
     <cfset this.datasource = "ecomWebsite"/>
     
-    
 
 </cfcomponent>

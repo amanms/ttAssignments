@@ -3,12 +3,12 @@
 
 <cfset product = createObject('component','components/product')>
 <cfset product_detail = product.get_product()>
-<cfif (structKeyExists(url,'type') AND url.type EQ 'delete') >
+<!---<cfif (structKeyExists(url,'type') AND url.type EQ 'delete') >
 	<cfquery name="delete_item">
 		delete from products where id='#url.id#'
 	</cfquery>
 
-</cfif>
+</cfif>--->
 
 <div class="content pb-0">
 	<div class="orders">
@@ -40,7 +40,7 @@
 								<tr style='background: whitesmoke;'>
 									<td class="serial"><cfoutput>#i#</cfoutput></td>
 							   		<td><cfoutput>#product_detail[i].id#</cfoutput></td>
-							   		<td><cfoutput>#product_detail[i].categories#</cfoutput></td>
+							   		<td><cfoutput>#product_detail[i].category_name#</cfoutput></td>
 									<td><cfoutput>#product_detail[i].name#</cfoutput></td>
 									<td><cfoutput>#product_detail[i].filepath#</cfoutput></td>
 									<td><cfoutput>#product_detail[i].price#</cfoutput></td>

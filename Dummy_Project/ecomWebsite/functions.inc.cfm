@@ -113,27 +113,4 @@
 		<cfreturn cart_details/>
 
 	</cffunction>
-	<!---<cffunction name="get_product" access="public" output="false" returntype="array">
-		<cfargument name="top" type="string" required="false">
-		<cfargument name="id" type="string" required="false">
-		<cfset productarray = arrayNew(1)>
-		<cfset sql = "select">
-		<cfset str = " * from dbo.products where status = 1">
-		<cfif arguments.top NEQ ''>
-			<cfset top = " TOP #arguments.top#">
-			<cfset sql &= #top#>
-		</cfif>
-		
-		<cfset orderstr =  "order by id desc">
-		<cfset sql &= #str# &= #orderstr#>
-		<!---<cfif #arguments.type# EQ 'latest'>
-			<cfset getproduct &= "order by id desc">
-		</cfif>--->
-		<cfquery name="getproduct" result="result">
-			#sql#
-		</cfquery>
-		<cfloop from ="1" to = "#getproduct.recordCount#" index="i">
-			<cfset productarray[#i#] = queryGetRow('#getproduct#',#i#)>
-		</cfloop>
-		<cfreturn productarray/>
-	</cffunction>--->
+	

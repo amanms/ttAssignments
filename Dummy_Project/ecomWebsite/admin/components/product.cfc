@@ -10,7 +10,7 @@
             <cfelseif arguments.product_name NEQ '' >
                 select products.id,products.name from products where name = <cfqueryparam value="#arguments.product_name#" cfsqltype="cf_sql_varchar">
             <cfelse>
-                SELECT products.id,products.name,products.filePath,products.price,categories.categories from products,categories where products.categoryId = categories.id order by id desc;        
+                SELECT products.id,products.name,products.filePath,products.price,categories.category_name from products,categories where products.categoryId = categories.id order by id desc;        
             </cfif>
         </cfquery>
         <cfloop from ="1" to = "#product.recordCount#" index="i">

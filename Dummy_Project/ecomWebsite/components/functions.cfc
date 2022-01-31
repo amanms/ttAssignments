@@ -56,7 +56,7 @@
 		<cfargument name="sort" type="string" required="false" default="">
 		
 		<cfset productarray = arrayNew(1)>
-		<cfset sql = "select products.*,categories.categories from products,categories where ">
+		<cfset sql = "select products.*,categories.category_name from products,categories where ">
 		<cfif arguments.cat_id NEQ ''>
 			<cfset sql &= "  products.categoryId=#arguments.cat_id# ">
 		</cfif>
