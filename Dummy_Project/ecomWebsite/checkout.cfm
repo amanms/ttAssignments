@@ -19,11 +19,10 @@
             insert into order_detail(order_id,quantity,price,user_id,product_name,filepath)
             values('#order_id#','#quantity#','#price#','#user_id#','#product_name#','#filepath#')
         </cfquery>
-    </cfloop>
     <cfquery name="delete">
         delete from cart;
     </cfquery>
-    <cflocation url="thankyou.cfm">--->
+    <cflocation url="thankyou.cfm">
 </cfif>
 
 <div class="checkout-wrap ptb--100">

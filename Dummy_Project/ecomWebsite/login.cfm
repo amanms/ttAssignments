@@ -1,5 +1,5 @@
 <cfinclude template="top.cfm">
-<cfif (structKeyExists(session,'USER_LOGIN') AND #session['USER_LOGIN']# EQ 'yes')>
+<cfif (structKeyExists(session,'USER_LOGIN') AND session['USER_LOGIN'] EQ 'yes')>
 	<cflocation url="my_orders.cfm">
 </cfif>
 

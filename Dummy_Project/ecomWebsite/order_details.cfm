@@ -21,12 +21,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <cfset uid = #session['USER_ID']#>
+                                    <cfset uid = session['USER_ID']>
                                     <cfquery name="order">
                                         select * from orders where user_id = #uid#;
                                     </cfquery>
                                     <cfloop from="1" to="#order.recordCount#" index="i">
-                                        <cfset row = queryGetRow(order,#i#)>
+                                        <cfset row = queryGetRow(order,i)>
                                         <tr>
                                             <td class="product-add-to-cart"><a href="order_details.cfm"><cfoutput>#row.id#</cfoutput></a></td>
                                             <td class="product-name"><cfoutput>#row.added_on#</cfoutput></td>

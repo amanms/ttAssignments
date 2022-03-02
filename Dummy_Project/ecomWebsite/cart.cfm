@@ -2,9 +2,7 @@
 <cfif (structKeyExists(session,'USER_LOGIN') AND session['USER_LOGIN'] EQ 'yes')>
     <cfset userid = session['USER_ID']>
     <cfif isNumeric(userid)>
-        <!---<cfquery name="cartitems">
-            select * from cart where userId = #userid#;
-        </cfquery>--->
+        
         <cfset cart_items = functions.get_cart_items(user_id=userid)>
     <cfelse>
         <cflocation url="logout.cfm">
@@ -34,18 +32,19 @@
                                 <cfloop from="1" to="#cart_items.recordCount#" index="i">
                                     <cfset row = queryGetRow(cart_items,i)>
                                     
+                                    
 
                                     <tr>
-                                        <td class="product-thumbnail"><a href="#"><img src="Images/<cfoutput>#cart_items.filepath#</cfoutput>" alt="product img" /></a></td>
-                                        <td class="product-name"><a href="#"><cfoutput>#cart_items.name#</cfoutput></a>
+                                        <td class="product-thumbnail"><a href="#"><img src="Images/<cfoutput>#row.filepath#</cfoutput>" alt="product img" /></a></td>
+                                        <td class="product-name"><a href="#"><cfoutput>#row.name#</cfoutput></a>
                                             
                                         </td>
-                                        <td class="product-price"><span class="amount"><cfoutput>Rs#cart_items.price#</cfoutput></span></td>
-                                        <td class="product-quantity"><input type="number" id="<cfoutput>#cart_items.id#</cfoutput>qty"  value="<cfoutput>#cart_items.quantity#</cfoutput>" min="1" max="10"/>
-                                            <br/><a href="javascript:void(0)" onclick="manage_cart(<cfoutput>#cart_items.id#</cfoutput>,'update')">update</a>
+                                        <td class="product-price"><span class="amount"><cfoutput>Rs#row.price#</cfoutput></span></td>
+                                        <td class="product-quantity"><input type="number" id="<cfoutput>#row.id#</cfoutput>qty"  value="<cfoutput>#row.quantity#</cfoutput>" min="1" max="10"/>
+                                            <br/><a href="javascript:void(0)" onclick="manage_cart(<cfoutput>#row.id#</cfoutput>,'update')">update</a>
                                         </td>
-                                        <td class="product-subtotal"><cfoutput>Rs#cart_items.quantity*cart_items.price#</cfoutput></td>
-                                        <td class="product-remove"><a href="javascript:void(0)" onclick="manage_cart(<cfoutput>#cart_items.id#</cfoutput>,'remove')"><i class="icon-trash icons"></i></a></td>
+                                        <td class="product-subtotal"><cfoutput>Rs#row.quantity*row.price#</cfoutput></td>
+                                        <td class="product-remove"><a href="javascript:void(0)" onclick="manage_cart(<cfoutput>#row.id#</cfoutput>,'remove')"><i class="icon-trash icons"></i></a></td>
                                     </tr>
 
                                 </cfloop>

@@ -197,5 +197,15 @@
 
     </cffunction>
 
+    <!--- function to get search results --->
+    <cffunction name="get_search_items" access="public" output="true" returntype="query">
+        <cfargument name="str" type="string" required="true" default="">
+        <cfquery name="search">
+            select products.*,categories.category_name from products,categories where 
+            products.categoryId=categories.id and (products.name like '%#arguments.str#%' or products.description like '%#arguments.str#%')
+            order by products.id desc 
+        </cfquery>
+        <cfreturn search/>
+    </cffunction>
     
 </cfcomponent>

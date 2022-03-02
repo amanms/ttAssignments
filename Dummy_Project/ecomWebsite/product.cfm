@@ -68,14 +68,22 @@
                                             <li><cfoutput>#product['1']['category_name']#</cfoutput></li>
                                         </ul>
                                     </div>
+
                                     
-                                    </div>
 									
                                 </div>
 								<a class="fr__btn" href="javascript:void(0)" onclick="manage_cart(<cfoutput>#product['1']['id']#</cfoutput>,'add')">Add to cart</a><br>
                                 <div class="form-output login_msg">
                                     <p class="form-messege field_error"></p>
                                 </div>
+                                <div>
+                                    <cf_socialplugin type = "like"
+                                    layout = "box_count"
+                                    showfaces = "true"
+                                    verb = "like"
+                                    colorscheme = "dark">
+                                </div>
+                                
                             </div>
                             
                         </div>

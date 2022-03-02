@@ -1,3 +1,4 @@
+<!--- order page to display orders placed by a particular user --->
 <cfinclude template="top.cfm">
 <div class="wishlist-area ptb--100 bg__white">
     <div class="container">
@@ -39,9 +40,6 @@
                                                 <cfoutput>#row.pincode#</cfoutput>
                                             </th>
                                             
-
-
-
                                      
                                         </tr>
                                     </cfloop>
