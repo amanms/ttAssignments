@@ -19,7 +19,7 @@
 
     <!--- function to get order details --->
     <cffunction name="order_details" access="public" output="true" returntype="query">
-        <cfargument name="id" type="string" required="true" default="">
+        <cfargument name="orders_id" type="string" required="true" default="">
         <cfquery name="get_order_detail">
             select distinct(order_detail.id),
             order_detail.price,
@@ -27,7 +27,7 @@
             order_detail.product_name,
             order_detail.filepath
             from order_detail
-            where order_detail.order_id =#arguments.id#
+            where order_detail.order_id =<cfqueryparam value="#orders_id#" cfsqltype="integer">
         </cfquery>
         <cfreturn get_order_detail/>
     </cffunction>

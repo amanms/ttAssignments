@@ -1,3 +1,4 @@
+/* function to register user with field validations and ajax call to display messages*/
 function user_register(){
     jQuery('.field_error').html('');
     var name=jQuery("#name").val();
@@ -52,6 +53,7 @@ function user_register(){
     }
 
 }
+/* function for login users */
 function user_login(){
     jQuery('.field_error').html('');
 	var email=jQuery("#login_email").val();
@@ -89,6 +91,7 @@ function user_login(){
     }
 
 }
+/*function to manage cart items */
 function manage_cart(pid,type){
     if(type=='update'){
         var qty = jQuery("#"+pid+"qty").val();
@@ -112,16 +115,14 @@ function manage_cart(pid,type){
                 jQuery('.login_msg p').html("Product added to cart");
             }
             if(str === 'itempresent loggedIn'){
-                jQuery('.login_msg p').html("Item is in cart");
+                jQuery('.login_msg p').html("Product is in cart");
             }
-            // if(type ==='update' || type ==='remove'){
-            //     console.log(10); 
-            // }
-            // jQuery('.htc__qua').html(result);
+            
         }
     });
 
 }
+/* function for reset password */
 function reset_password(){
     jQuery('.field_error').html('');
 	var new_password=jQuery("#new_password").val();
@@ -153,6 +154,7 @@ function reset_password(){
 
     
 }
+/* function for update password */
 function update_password(){
     jQuery('.field_error').html('');
     var email = jQuery("#user_email").val();
@@ -193,6 +195,7 @@ function update_password(){
 
     
 }
+/* function to create drop down for sorting of products */
 function sort_product_drop(cat_id){
 	var sort_product_id=jQuery('#sort_product_id').val();
     

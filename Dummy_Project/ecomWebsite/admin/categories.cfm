@@ -1,6 +1,6 @@
-
+<!--- Category page for admin --->
 <cfinclude template="top.inc.cfm">
-
+<!--- function call to get category list --->
 <cfset categories = createObject('component','components/categories')>
 <cfset category_list = categories.get_category()>
 

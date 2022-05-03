@@ -1,15 +1,8 @@
-
+<!--- Product page for admin --->
 <cfinclude template="top.inc.cfm">
-
+<!--- function call to get product items list ---> 
 <cfset product = createObject('component','components/product')>
 <cfset product_detail = product.get_product()>
-<!---<cfif (structKeyExists(url,'type') AND url.type EQ 'delete') >
-	<cfquery name="delete_item">
-		delete from products where id='#url.id#'
-	</cfquery>
-
-</cfif>--->
-
 <div class="content pb-0">
 	<div class="orders">
 	   <div class="row">

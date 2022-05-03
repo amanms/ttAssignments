@@ -1,16 +1,19 @@
+<!--- cart page to display products in cart --->
 <cfinclude template="top.cfm">
+<!--- check user login status --->
 <cfif (structKeyExists(session,'USER_LOGIN') AND session['USER_LOGIN'] EQ 'yes')>
     <cfset userid = session['USER_ID']>
     <cfif isNumeric(userid)>
         
         <cfset cart_items = functions.get_cart_items(user_id=userid)>
+        
     <cfelse>
         <cflocation url="logout.cfm">
     </cfif>
 <cfelse>
     <cflocation url="logout.cfm">
 </cfif>
-
+<!--- fetch cart items --->
 <div class="cart-main-area ptb--100 bg__white">
     <div class="container">
         <div class="row">

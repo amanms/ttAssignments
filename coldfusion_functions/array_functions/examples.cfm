@@ -11,6 +11,7 @@
     writeOutput(arrayContains(myArray,2)); //return true
     writeOutput(arrayContains(myArray,6)); // return false
     writeOutput(arrayContains(myArray,"car")); // return false
+    writeOutput(arrayContains(myArray,100));
 
 </cfscript>
 
@@ -43,7 +44,7 @@
     writeOutput("Updated array is:");
     arrayDeleteAt(myArray,2);
     writeDump(myArray)
-</cfscript> 18004190072 3171 4400 0601 0420 4179 341 224698
+</cfscript> 
 
 <br>
 

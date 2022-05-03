@@ -363,3 +363,4 @@ Delete client.User_ID variable.
     setAt1=ListSetAt(myList1,2,"Portugal","|")
     writeOutput(setAt1)
 </cfscript>
+<br>
